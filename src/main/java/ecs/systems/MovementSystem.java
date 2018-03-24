@@ -5,6 +5,7 @@ import ecs.components.AccelerationComponent;
 import ecs.components.PositionComponent;
 import ecs.components.TimeComponent;
 import ecs.components.VelocityComponent;
+import org.joml.Vector3f;
 import system.System;
 
 import java.util.List;
@@ -25,14 +26,16 @@ public class MovementSystem extends System {
             float delta_t2 = delta_t * delta_t;
 
             //handle position
-            position.position.add(velocity.position.mul(delta_t));
-            position.position.add(acceleration.position.mul(delta_t2));
+            position.position.add(velocity.position.mul(delta_t, new Vector3f(0,0,0)));
+            position.position.add(acceleration.position.mul(delta_t2, new Vector3f(0,0,0)));
+
             //handle rotation
-            position.rotation.add(velocity.rotation.mul(delta_t));
-            position.rotation.add(acceleration.rotation.mul(delta_t2));
+            position.rotation.add(velocity.rotation.mul(delta_t, new Vector3f(0,0,0)));
+            position.rotation.add(acceleration.rotation.mul(delta_t2, new Vector3f(0,0,0)));
+
             //handle scaling
-            position.scaling.add(velocity.scaling.mul(delta_t));
-            position.scaling.add(acceleration.scaling.mul(delta_t2));
+            position.scaling.add(velocity.scaling.mul(delta_t, new Vector3f(0,0,0)));
+            position.scaling.add(acceleration.scaling.mul(delta_t2, new Vector3f(0,0,0)));
         }
     }
 }

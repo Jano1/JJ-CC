@@ -8,8 +8,8 @@ import org.joml.Vector3f;
  */
 public class CameraComponent extends Component<CameraComponent> {
 
-    Vector3f target;
-    Vector3f up;
+    public Vector3f target;
+    public Vector3f up;
     float field_of_view;
     float aspect_ratio;
     float distance_near;
