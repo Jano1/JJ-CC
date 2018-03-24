@@ -34,10 +34,13 @@ public class ContextManager {
             for(File context_file : context_directory.listFiles()){
                 try {
                     Scanner scanner = new Scanner(context_file);
-                    Context to_generate = new Context(context_file.getName());
+                    Context to_generate = new Context(context_file.getName().split("\\.")[0]);
                     contexts.put(to_generate.name,to_generate);
                     while(scanner.hasNextLine()){
                         String line = scanner.nextLine();
+                        if(line.startsWith("#") || line.isEmpty()){
+                            continue;
+                        }
                         String[] equal_split = line.split("=");
                         Integer key_code = Integer.valueOf(equal_split[0]);
                         String[] colon_split = equal_split[1].split(":");
