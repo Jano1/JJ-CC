@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="jj-cc:main" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="jjdev.projects" external.system.module.type="sourceSet" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/../../out/production/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../src/main/resources" type="java-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: com.github.Jano1:entity_component_system:master-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-assimp:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-assimp:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-bgfx:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-bgfx:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-egl:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-glfw:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-glfw:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-jawt:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-jemalloc:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-jemalloc:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-lmdb:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-lmdb:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-lz4:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-lz4:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-nanovg:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-nanovg:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-nfd:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-nfd:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-nuklear:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-nuklear:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-odbc:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-openal:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-openal:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-opencl:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-opengl:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-opengl:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-opengles:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-opengles:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-openvr:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-openvr:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-ovr:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-ovr:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-par:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-par:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-remotery:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-remotery:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-rpmalloc:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-rpmalloc:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-sse:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-sse:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-stb:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-stb:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-tinyexr:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-tinyexr:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-tinyfd:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-tinyfd:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-tootle:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-tootle:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-vulkan:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-xxhash:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-xxhash:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-yoga:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-yoga:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-zstd:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl-zstd:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl:natives-windows:3.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.joml:joml:1.9.9" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.commons:commons-collections4:4.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.commons:commons-math3:3.6.1" level="project" />
+    <orderEntry type="library" name="Gradle: commons-io:commons-io:2.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.commons:commons-text:1.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.commons:commons-lang3:3.7" level="project" />
+  </component>
+</module>

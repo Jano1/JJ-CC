@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.lwjgl:lwjgl-bgfx:natives-windows:3.1.6">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-bgfx/3.1.6/f09d878bb1fca49460fa329d0281381e8ef00a8e/lwjgl-bgfx-3.1.6-natives-windows.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-bgfx/3.1.6/4c8fcf2395905427eaf42fda397ce7644be1c972/lwjgl-bgfx-3.1.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

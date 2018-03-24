@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.lwjgl:lwjgl-nuklear:natives-windows:3.1.6">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-nuklear/3.1.6/62640e9896d09798e8006e1edf3acca9b4c342a/lwjgl-nuklear-3.1.6-natives-windows.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-nuklear/3.1.6/ccf33c1b7026ea52d77febf37af3da885ff96321/lwjgl-nuklear-3.1.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

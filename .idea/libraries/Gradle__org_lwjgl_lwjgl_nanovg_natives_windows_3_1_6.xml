@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.lwjgl:lwjgl-nanovg:natives-windows:3.1.6">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-nanovg/3.1.6/61a4afb70e89eddd07d42008e8125a0e0dc2e294/lwjgl-nanovg-3.1.6-natives-windows.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-nanovg/3.1.6/149f9b162b315bedc63dd6b83d88b2cc7b6804da/lwjgl-nanovg-3.1.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

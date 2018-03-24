@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.lwjgl:lwjgl-openvr:natives-windows:3.1.6">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-openvr/3.1.6/393ed9c27af2ffe4b4917412a60201b1b9516171/lwjgl-openvr-3.1.6-natives-windows.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-openvr/3.1.6/ecea4013b2602e48365b48812eb21dcc3e8c7920/lwjgl-openvr-3.1.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

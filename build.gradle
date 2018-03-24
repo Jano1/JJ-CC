@@ -1,0 +1,76 @@
+group 'jjdev.projects'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'com.github.Jano1:entity_component_system:master-SNAPSHOT'
+    compile "org.lwjgl:lwjgl:3.1.6"
+    compile "org.lwjgl:lwjgl-assimp:3.1.6"
+    compile "org.lwjgl:lwjgl-bgfx:3.1.6"
+    compile "org.lwjgl:lwjgl-egl:3.1.6"
+    compile "org.lwjgl:lwjgl-glfw:3.1.6"
+    compile "org.lwjgl:lwjgl-jawt:3.1.6"
+    compile "org.lwjgl:lwjgl-jemalloc:3.1.6"
+    compile "org.lwjgl:lwjgl-lmdb:3.1.6"
+    compile "org.lwjgl:lwjgl-lz4:3.1.6"
+    compile "org.lwjgl:lwjgl-nanovg:3.1.6"
+    compile "org.lwjgl:lwjgl-nfd:3.1.6"
+    compile "org.lwjgl:lwjgl-nuklear:3.1.6"
+    compile "org.lwjgl:lwjgl-odbc:3.1.6"
+    compile "org.lwjgl:lwjgl-openal:3.1.6"
+    compile "org.lwjgl:lwjgl-opencl:3.1.6"
+    compile "org.lwjgl:lwjgl-opengl:3.1.6"
+    compile "org.lwjgl:lwjgl-opengles:3.1.6"
+    compile "org.lwjgl:lwjgl-openvr:3.1.6"
+    compile "org.lwjgl:lwjgl-ovr:3.1.6"
+    compile "org.lwjgl:lwjgl-par:3.1.6"
+    compile "org.lwjgl:lwjgl-remotery:3.1.6"
+    compile "org.lwjgl:lwjgl-rpmalloc:3.1.6"
+    compile "org.lwjgl:lwjgl-sse:3.1.6"
+    compile "org.lwjgl:lwjgl-stb:3.1.6"
+    compile "org.lwjgl:lwjgl-tinyexr:3.1.6"
+    compile "org.lwjgl:lwjgl-tinyfd:3.1.6"
+    compile "org.lwjgl:lwjgl-tootle:3.1.6"
+    compile "org.lwjgl:lwjgl-vulkan:3.1.6"
+    compile "org.lwjgl:lwjgl-xxhash:3.1.6"
+    compile "org.lwjgl:lwjgl-yoga:3.1.6"
+    compile "org.lwjgl:lwjgl-zstd:3.1.6"
+    compile "org.lwjgl:lwjgl:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-assimp:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-bgfx:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-glfw:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-jemalloc:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-lmdb:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-lz4:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-nanovg:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-nfd:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-nuklear:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-openal:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-opengl:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-opengles:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-openvr:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-ovr:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-par:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-remotery:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-rpmalloc:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-sse:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-stb:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-tinyexr:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-tinyfd:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-tootle:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-xxhash:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-yoga:3.1.6:natives-windows"
+    compile "org.lwjgl:lwjgl-zstd:3.1.6:natives-windows"
+    compile "org.joml:joml:1.9.9"
+}
