@@ -3,8 +3,6 @@ package ecs.systems;
 import input.ContextManager;
 import input.VirtualKeyboard;
 import input.VirtualMouse;
-import org.lwjgl.glfw.GLFWKeyCallback;
-import org.lwjgl.glfw.GLFWMouseButtonCallback;
 import system.System;
 
 import static org.lwjgl.glfw.GLFW.*;
@@ -18,12 +16,16 @@ public class InputSystem extends System {
     VirtualKeyboard keyboard;
     VirtualMouse mouse;
 
-    private long window;
-
     public static final int NO_STATE = -1;
 
-    protected void init(long window) {
-        this.window = window;
+    public InputSystem(long window){
+        manager = new ContextManager();
+        keyboard = new VirtualKeyboard(window);
+        mouse = new VirtualMouse(window);
+        init();
+    }
+
+    protected void init() {
         keyboard.reset();
         mouse.reset();
     }

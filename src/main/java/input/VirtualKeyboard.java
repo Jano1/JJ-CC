@@ -1,6 +1,7 @@
 package input;
 
 import ecs.systems.InputSystem;
+import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWKeyCallback;
 
 import static org.lwjgl.glfw.GLFW.GLFW_PRESS;
@@ -15,6 +16,8 @@ public class VirtualKeyboard {
     private int[] keyStates = new int[KEYBOARD_SIZE];
     private boolean[] activeKeys = new boolean[KEYBOARD_SIZE];
 
+    long window;
+
     protected GLFWKeyCallback keyboard = new GLFWKeyCallback() {
         @Override
         public void invoke(long window, int key, int scancode, int action, int mods) {
@@ -22,6 +25,11 @@ public class VirtualKeyboard {
             keyStates[key] = action;
         }
     };
+
+    public VirtualKeyboard(long window) {
+        this.window = window;
+        GLFW.glfwSetKeyCallback(window,keyboard);
+    }
 
     public void reset() {
         for (int i = 0; i < keyStates.length; i++) {

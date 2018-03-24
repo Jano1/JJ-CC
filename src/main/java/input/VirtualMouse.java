@@ -1,6 +1,7 @@
 package input;
 
 import ecs.systems.InputSystem;
+import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWMouseButtonCallback;
 
 import static org.lwjgl.glfw.GLFW.GLFW_RELEASE;
@@ -16,6 +17,8 @@ public class VirtualMouse {
     private long lastMouseNS = 0;
     private long mouseDoubleClickPeriodNS = 1000000000 / 5; //5th of a second for double click.
 
+    long window;
+
     protected GLFWMouseButtonCallback mouse = new GLFWMouseButtonCallback() {
         @Override
         public void invoke(long window, int button, int action, int mods) {
@@ -23,6 +26,11 @@ public class VirtualMouse {
             mouseButtonStates[button] = action;
         }
     };
+
+    public VirtualMouse(long window) {
+        this.window = window;
+        GLFW.glfwSetMouseButtonCallback(window,mouse);
+    }
 
     public void reset() {
         for (int i = 0; i < mouseButtonStates.length; i++) {
