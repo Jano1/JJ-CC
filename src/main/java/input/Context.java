@@ -28,4 +28,16 @@ public class Context {
     public String get_name() {
         return name;
     }
+
+    public Action get_action(int code){
+        return actions.get(code);
+    }
+
+    public State get_state(int code){
+        return states.get(code);
+    }
+
+    public Range get_range(int code){
+        return ranges.get(code);
+    }
 }
