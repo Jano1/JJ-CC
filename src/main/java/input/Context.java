@@ -10,9 +10,9 @@ import java.util.Map;
 public class Context {
     String name;
 
-    Map<Integer,Action> actions;
-    Map<Integer,State> states;
-    Map<Integer,Range> ranges;
+    public Map<Integer,Action> actions;
+    public Map<Integer,State> states;
+    public Map<Integer,Range> ranges;
 
     public Context(String name,Map<Integer, Action> actions, Map<Integer, State> states, Map<Integer, Range> ranges) {
         this.name = name;

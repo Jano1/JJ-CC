@@ -13,10 +13,10 @@ import java.util.List;
  */
 public class InputComponent extends Component<InputComponent> {
 
-    String context_name;
-    List<Action> actions;
-    List<State> states;
-    List<Range> ranges;
+    public String context_name;
+    public List<Action> actions;
+    public List<State> states;
+    public List<Range> ranges;
 
     @Override
     public boolean equal_values(InputComponent inputComponent) {
