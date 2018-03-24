@@ -40,4 +40,14 @@ public class Context {
     public Range get_range(int code){
         return ranges.get(code);
     }
+
+    @Override
+    public String toString() {
+        return "Context{" +
+                "name='" + name + '\'' +
+                ", actions=" + actions +
+                ", states=" + states +
+                ", ranges=" + ranges +
+                '}';
+    }
 }
