@@ -8,9 +8,9 @@ import org.joml.Vector3f;
  */
 public class PositionComponent extends HistoricBasedComponent<PositionComponent> {
 
-    Vector3f position;
-    Vector3f rotation;
-    Vector3f scaling;
+    public Vector3f position;
+    public Vector3f rotation;
+    public Vector3f scaling;
 
     public PositionComponent(Vector3f position, Vector3f rotation, Vector3f scaling) {
         this.position = position;

@@ -8,9 +8,9 @@ import org.joml.Vector3f;
  */
 public class VelocityComponent extends BasedComponent<VelocityComponent> {
 
-    Vector3f position; // per second
-    Vector3f rotation; // per second
-    Vector3f scaling;  // per second
+    public Vector3f position; // per second
+    public Vector3f rotation; // per second
+    public Vector3f scaling;  // per second
 
     public VelocityComponent(Vector3f position, Vector3f rotation, Vector3f scaling) {
         this.position = position;
