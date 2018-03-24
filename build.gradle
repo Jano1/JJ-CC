@@ -6,6 +6,10 @@ apply plugin: 'application'
 
 sourceCompatibility = 1.8
 
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
 repositories {
     mavenCentral()
     jcenter()
