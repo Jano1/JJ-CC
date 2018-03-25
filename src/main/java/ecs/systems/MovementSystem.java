@@ -15,6 +15,10 @@ import java.util.List;
  */
 public class MovementSystem extends System {
 
+    public MovementSystem(){
+        super(PositionComponent.class,VelocityComponent.class,AccelerationComponent.class);
+    }
+
     public void handle(List<ID> to_handle) {
         for (ID single_id : to_handle) {
             PositionComponent position = single_id.get(PositionComponent.class);

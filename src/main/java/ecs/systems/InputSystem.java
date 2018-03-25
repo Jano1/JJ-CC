@@ -24,6 +24,7 @@ public class InputSystem extends System {
     public static final int NO_STATE = -1;
 
     public InputSystem(long window){
+        super(InputComponent.class);
         manager = new ContextManager();
         keyboard = new VirtualKeyboard(window);
         mouse = new VirtualMouse(window);
