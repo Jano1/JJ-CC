@@ -6,4 +6,9 @@ package input;
 public class Range {
     String range;
     float value;
+
+    public Range(String range, float value) {
+        this.range = range;
+        this.value = value;
+    }
 }

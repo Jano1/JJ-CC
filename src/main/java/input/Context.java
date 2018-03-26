@@ -14,6 +14,8 @@ public class Context {
     public Map<Integer,State> states;
     public Map<Integer,Range> ranges;
 
+    public static String DO_NOTHING = "do_nothing";
+
     public Context(String name,Map<Integer, Action> actions, Map<Integer, State> states, Map<Integer, Range> ranges) {
         this.name = name;
         this.actions = actions;
@@ -30,14 +32,23 @@ public class Context {
     }
 
     public Action get_action(int code){
+        if(actions.get(code) == null){
+            return new Action(DO_NOTHING);
+        }
         return actions.get(code);
     }
 
     public State get_state(int code){
+        if(states.get(code) == null){
+            return new State(DO_NOTHING);
+        }
         return states.get(code);
     }
 
     public Range get_range(int code){
+        if(ranges.get(code) == null){
+            return new Range(DO_NOTHING,0f);
+        }
         return ranges.get(code);
     }
 
