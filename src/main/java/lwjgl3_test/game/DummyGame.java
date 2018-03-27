@@ -32,11 +32,13 @@ public class DummyGame implements IGameLogic {
 
     private Scene scene;
 
-    private lwjgl3_test.game.Hud hud;
+    private Hud hud;
 
     private float lightAngle;
 
     private static final float CAMERA_POS_STEP = 0.05f;
+
+    private float factor = 0;
 
     public DummyGame() {
         renderer = new Renderer();
@@ -113,27 +115,36 @@ public class DummyGame implements IGameLogic {
 
         // Directional Light
         float lightIntensity = 1.0f;
-        Vector3f lightPosition = new Vector3f(-1, 0, 0);
-        sceneLight.setDirectionalLight(new DirectionalLight(new Vector3f(1, 1, 1), lightPosition, lightIntensity));
+//        Vector3f lightPosition = new Vector3f(-1, 0, 0);
+//        Vector3f lightDirection = new Vector3f(0, 1, 1);
+//        sceneLight.setDirectionalLight(new DirectionalLight(new Vector3f(1, 1, 1), lightPosition, lightIntensity));
+//        Vector3f lightDirection = sceneLight.getDirectionalLight().getDirection();
+        DirectionalLight directionalLight = new DirectionalLight(new Vector3f(1, 1, 1), new Vector3f(0, 1, 1), lightIntensity);
+        directionalLight.setShadowPosMult(5);
+        directionalLight.setOrthoCords(-10.0f, 10.0f, -10.0f, 10.0f, -1.0f, 20.0f);
+        sceneLight.setDirectionalLight(directionalLight);
     }
 
     @Override
     public void input(Window window, MouseInput mouseInput) {
         cameraInc.set(0, 0, 0);
         if (window.isKeyPressed(GLFW_KEY_W)) {
-            cameraInc.z = -1;
+            cameraInc.z = -3;
         } else if (window.isKeyPressed(GLFW_KEY_S)) {
-            cameraInc.z = 1;
+            cameraInc.z = 3;
         }
         if (window.isKeyPressed(GLFW_KEY_A)) {
-            cameraInc.x = -1;
+            cameraInc.x = -3;
         } else if (window.isKeyPressed(GLFW_KEY_D)) {
-            cameraInc.x = 1;
+            cameraInc.x = 3;
         }
         if (window.isKeyPressed(GLFW_KEY_Z)) {
-            cameraInc.y = -1;
+            cameraInc.y = -3;
         } else if (window.isKeyPressed(GLFW_KEY_X)) {
-            cameraInc.y = 1;
+            cameraInc.y = 3;
+        }
+        if (window.isKeyPressed(GLFW_KEY_SPACE)) {
+            factor = 1 - (float) (Math.abs(lightAngle) - 80) / 10.0f;
         }
     }
 
@@ -163,7 +174,7 @@ public class DummyGame implements IGameLogic {
             }
             sceneLight.getAmbientLight().set(0.3f, 0.3f, 0.4f);
         } else if (lightAngle <= -80 || lightAngle >= 80) {
-            float factor = 1 - (float) (Math.abs(lightAngle) - 80) / 10.0f;
+//            float factor = 1 - (float) (Math.abs(lightAngle) - 80) / 10.0f;
             sceneLight.getAmbientLight().set(factor, factor, factor);
             directionalLight.setIntensity(factor);
             directionalLight.getColor().y = Math.max(factor, 0.9f);

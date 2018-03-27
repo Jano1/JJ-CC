@@ -1,5 +1,6 @@
 package lwjgl3_test.engine.graph;
 
+import org.joml.Vector3f;
 import org.joml.Vector4f;
 
 public class Material {
@@ -11,10 +12,12 @@ public class Material {
     private Vector4f diffuseColour;
 
     private Vector4f specularColour;
-
+    
     private float reflectance;
 
     private Texture texture;
+    
+    private Texture normalMap;
 
     public Material() {
         this.ambientColour = DEFAULT_COLOUR;
@@ -87,5 +90,16 @@ public class Material {
     public void setTexture(Texture texture) {
         this.texture = texture;
     }
+    
+    public boolean hasNormalMap() {
+        return this.normalMap != null;
+    }
 
+    public Texture getNormalMap() {
+        return normalMap;
+    }
+
+    public void setNormalMap(Texture normalMap) {
+        this.normalMap = normalMap;
+    }
 }

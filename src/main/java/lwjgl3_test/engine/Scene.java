@@ -48,6 +48,12 @@ public class Scene {
         return sceneLight;
     }
 
+    public void cleanup() {
+        for (Mesh mesh : meshMap.keySet()) {
+            mesh.cleanUp();
+        }
+    }
+
     public void setSceneLight(SceneLight sceneLight) {
         this.sceneLight = sceneLight;
     }
