@@ -1,7 +1,10 @@
 package main;
 
 import ecs.ECS;
+import ecs.systems.InputSystem;
 import org.apache.commons.collections4.map.HashedMap;
+import org.lwjgl.glfw.GLFW;
+import system.System;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,18 +39,12 @@ public class Game implements Runnable{
         }
     }
 
-    private void init() {
-        ECS ecs = new ECS(10000);
-        ecs_list.put("play_level",ecs);
-        to_tick.add("play_level");
-    }
-
     protected void loop() {
         int ticks_per_second = 25;
         int max_frameskip = 5;
         int skip_ticks = 1000000000/ticks_per_second;
 
-        long next_game_tick = System.nanoTime();
+        long next_game_tick = java.lang.System.nanoTime();
 
         int loops;
         float interpolation;
@@ -58,13 +55,13 @@ public class Game implements Runnable{
         boolean running = true;
         while (running) {
             loops = 0;
-            while( System.nanoTime() > next_game_tick && loops < max_frameskip) {
+            while( java.lang.System.nanoTime() > next_game_tick && loops < max_frameskip) {
                 update();
                 next_game_tick += skip_ticks;
                 loops++;
                 ups.tick();
             }
-            interpolation = (System.nanoTime() + skip_ticks - next_game_tick) / skip_ticks;
+            interpolation = (java.lang.System.nanoTime() + skip_ticks - next_game_tick) / skip_ticks;
             render(interpolation);
             fps.tick();
         }
@@ -82,6 +79,12 @@ public class Game implements Runnable{
             ecs_list.get(name).tick();
         }
     }
+
+    private void init() {
+        ECS ecs = ECSLoader.test();
+        ecs_list.put("play_level",ecs);
+        to_tick.add("play_level");
+    }
 }
 
 class XPSCounter{
@@ -96,16 +99,24 @@ class XPSCounter{
     }
 
     public XPSCounter(String name){
-        this(name,System.nanoTime());
+        this(name,java.lang.System.nanoTime());
     }
 
     public void tick(){
-        if(System.nanoTime() <=  start+(1000000000)){
+        if(java.lang.System.nanoTime() <=  start+(1000000000)){
             xps++;
         }else{
-            System.out.println(name+": "+xps);
+            java.lang.System.out.println(name+": "+xps);
             xps = 0;
-            start = System.nanoTime();
+            start = java.lang.System.nanoTime();
         }
+    }
+}
+
+class ECSLoader{
+    public static ECS test(){
+        ECS ecs = new ECS(10000);
+            ecs.register_system_group("input",new System[]{new InputSystem(1)});
+        return ecs;
     }
 }
