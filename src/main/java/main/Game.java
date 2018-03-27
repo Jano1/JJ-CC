@@ -37,7 +37,8 @@ public class Game implements Runnable{
     }
 
     private void init() {
-        ecs_list.put("play_level",new ECS(10000));
+        ECS ecs = new ECS(10000);
+        ecs_list.put("play_level",ecs);
         to_tick.add("play_level");
     }
 
