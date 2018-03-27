@@ -1,0 +1,9 @@
+#movement
+87=action:move_forward
+65=action:move_left
+83=action:move_backward
+68=action:move_right
+
+#rotation
+81=action:rotate_left
+69=action:rotate_right
