@@ -126,7 +126,6 @@ class ECSLoader{
             ID player = ecs.create_entity(Blueprint.empty_blueprint());
             player.add(new PositionComponent(new Vector3f(1,1,0)));
             player.add(new VelocityComponent(new Vector3f(1,0,0)));
-            player.add(new AccelerationComponent());
             player.add(new TimeComponent(25));
             player.add(new InputComponent());
             player.add(new CameraComponent(new Vector3f(1,1,0),new Vector3f(0,0,1),70,(16/9),0.1f,20.0f,true));
