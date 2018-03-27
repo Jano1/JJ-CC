@@ -33,6 +33,8 @@ public class MovementSystem extends System {
             position.position.add(velocity.position.mul(delta_t, new Vector3f(0,0,0)));
             position.position.add(acceleration.position.mul(delta_t2, new Vector3f(0,0,0)));
 
+            java.lang.System.out.println("Moved to: "+position.position);
+
             //handle rotation
             position.rotation.add(velocity.rotation.mul(delta_t, new Vector3f(0,0,0)));
             position.rotation.add(acceleration.rotation.mul(delta_t2, new Vector3f(0,0,0)));
