@@ -73,4 +73,5 @@ dependencies {
     compile "org.lwjgl:lwjgl-yoga:3.1.6:natives-windows"
     compile "org.lwjgl:lwjgl-zstd:3.1.6:natives-windows"
     compile "org.joml:joml:1.9.9"
+    compile group: 'org.l33tlabs.twl', name: 'pngdecoder', version: '1.0'
 }
