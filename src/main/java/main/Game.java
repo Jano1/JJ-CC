@@ -1,8 +1,12 @@
 package main;
 
+import ecs.Blueprint;
 import ecs.ECS;
+import ecs.ID;
+import ecs.components.*;
 import ecs.systems.InputSystem;
 import org.apache.commons.collections4.map.HashedMap;
+import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFW;
 import system.System;
 
@@ -116,7 +120,12 @@ class XPSCounter{
 class ECSLoader{
     public static ECS test(){
         ECS ecs = new ECS(10000);
-            ecs.register_system_group("input",new System[]{new InputSystem(1)});
+            ID player = ecs.create_entity(Blueprint.empty_blueprint());
+            player.add(new PositionComponent(new Vector3f(1,1,0)));
+            player.add(new VelocityComponent());
+            player.add(new AccelerationComponent());
+            player.add(new InputComponent());
+            player.add(new CameraComponent(new Vector3f(1,1,0),new Vector3f(0,0,1),70,(16/9),0.1f,20.0f));
         return ecs;
     }
 }
