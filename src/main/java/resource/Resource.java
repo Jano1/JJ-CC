@@ -1,9 +1,7 @@
-package resources;
+package resource;
 
 import java.io.File;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Jan-Frederik Leißner on 27.03.2018.

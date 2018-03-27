@@ -1,16 +1,13 @@
-package resources.implemented;
+package resource.implemented;
 
 import input.Action;
 import input.Context;
 import input.Range;
 import input.State;
-import resources.Resource;
-import resources.ResourceLoader;
+import resource.Resource;
 
 import java.io.FileNotFoundException;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**

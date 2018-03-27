@@ -1,14 +1,10 @@
-package resources;
-
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.Loader;
+package resource;
 
 import java.io.File;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -27,7 +23,7 @@ public class ResourceLoader {
             }
         }
         //2. Versuch, ClassLoader
-        classLoader = Loader.class.getClassLoader();
+        classLoader = System.class.getClassLoader();
         if(classLoader != null){
             url = classLoader.getResource(resource);
             if(url != null){

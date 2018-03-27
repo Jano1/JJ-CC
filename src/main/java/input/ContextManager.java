@@ -1,16 +1,12 @@
 package input;
 
 import org.apache.commons.collections4.map.HashedMap;
-import resources.ResourceLoader;
-import resources.implemented.ContextResource;
+import resource.ResourceLoader;
+import resource.implemented.ContextResource;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 
 /**
  * Created by Jan-Frederik Leißner on 24.03.2018.
