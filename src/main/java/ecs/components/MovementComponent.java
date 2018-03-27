@@ -7,8 +7,7 @@ import component.Component;
  */
 public class MovementComponent extends Component<MovementComponent> {
 
-
-
+    
 
     @Override
     public boolean equal_values(MovementComponent movementComponent) {

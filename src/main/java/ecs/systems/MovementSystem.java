@@ -26,7 +26,7 @@ public class MovementSystem extends System {
 
             VelocityComponent velocity = single_id.get(VelocityComponent.class);
             AccelerationComponent acceleration = single_id.get(AccelerationComponent.class);
-            boolean has_acceleration = acceleration != null;
+            boolean has_acceleration = (acceleration != null);
 
             float delta_t = single_id.get(TimeComponent.class).delta_t();
             position.position.add(velocity.position.mul(delta_t, new Vector3f(0,0,0)));
