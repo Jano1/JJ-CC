@@ -24,22 +24,22 @@ public class Model {
 
     // Base variables
     String name;
-    List<Vector3f> vertices;
-    List<Vector2f> textures;
-    List<Vector3f> normals;
-    List<Face> faces;
+    private List<Vector3f> vertices;
+    private List<Vector2f> textures;
+    private List<Vector3f> normals;
+    private List<Face> faces;
 
     // Calculations for loading in opengl
-    float[] vertices_array;
-    float[] textures_array;
-    float[] normals_array;
-    int[] indices_array;
+    private float[] vertices_array;
+    private float[] textures_array;
+    private float[] normals_array;
+    private int[] indices_array;
 
     // OpenGL information
-    int vertex_array_id;
-    int vertex_buffer_id;
-    int vertex_count;
-    List<Integer> vertex_buffer_ids;
+    private int vertex_array_id;
+    private int vertex_buffer_id;
+    private int vertex_count;
+    private List<Integer> vertex_buffer_ids;
 
     public Model(String name) {
         this.name = name;
