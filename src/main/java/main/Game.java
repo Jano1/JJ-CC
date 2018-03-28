@@ -102,11 +102,6 @@ public class Game implements Runnable{
     private void init() throws Exception {
         window.init();
 
-        Texture t = new Texture(new ImageResource("grassblock.png").get_as_object());
-        Model m = new ModelResource("cube.obj").get_as_object();
-        m.load_into_opengl();
-        java.lang.System.out.println(m);
-
         ECS ecs = ECSLoader.test(window);
         ecs_list.put("play_level",ecs);
         to_tick.add("play_level");

@@ -17,6 +17,7 @@ public class Texture {
     public Texture(Image image) throws Exception {
         this.width = image.as_png_decoded().getWidth();
         this.height = image.as_png_decoded().getHeight();
+        this.id = -1;
         load_into_opengl(image);
     }
 
@@ -49,7 +50,12 @@ public class Texture {
         return id;
     }
 
+    public boolean is_loaded(){
+        return id != -1;
+    }
+
     public void cleanup() {
         glDeleteTextures(id);
+        id = -1;
     }
 }

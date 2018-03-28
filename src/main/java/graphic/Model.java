@@ -229,6 +229,37 @@ public class Model {
         return (vertex_array_id != -1 && vertex_buffer_id != -1 && vertex_count != -1);
     }
 
+    protected void init_render(Texture texture) {
+        if (texture != null) {
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_2D, texture.get_id());
+        }
+        glBindVertexArray(vertex_array_id());
+        glEnableVertexAttribArray(0);
+        glEnableVertexAttribArray(1);
+        glEnableVertexAttribArray(2);
+    }
+
+    protected void end_render() {
+        glDisableVertexAttribArray(0);
+        glDisableVertexAttribArray(1);
+        glDisableVertexAttribArray(2);
+        glBindVertexArray(0);
+        glBindTexture(GL_TEXTURE_2D, 0);
+    }
+
+    public void clean_up() {
+        glDisableVertexAttribArray(0);
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
+        for (int vertex_buffer_id : vertex_buffer_ids) {
+            glDeleteBuffers(vertex_buffer_id);
+        }
+        vertex_buffer_ids.clear();
+        glBindVertexArray(0);
+        glDeleteVertexArrays(vertex_array_id);
+        vertex_array_id = -1;
+    }
+
     @Override
     public String toString() {
         Gson json = new Gson();
