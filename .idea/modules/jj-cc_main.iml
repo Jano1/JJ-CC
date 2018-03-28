@@ -69,6 +69,7 @@
     <orderEntry type="library" name="Gradle: org.lwjgl:lwjgl:natives-windows:3.1.6" level="project" />
     <orderEntry type="library" name="Gradle: org.joml:joml:1.9.9" level="project" />
     <orderEntry type="library" name="Gradle: org.l33tlabs.twl:pngdecoder:1.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.8.2" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.commons:commons-collections4:4.1" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.commons:commons-math3:3.6.1" level="project" />
     <orderEntry type="library" name="Gradle: commons-io:commons-io:2.6" level="project" />

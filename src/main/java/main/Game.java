@@ -8,11 +8,13 @@ import ecs.components.*;
 import ecs.systems.InputSystem;
 import ecs.systems.MovementSystem;
 import graphic.Image;
+import graphic.Model;
 import graphic.Texture;
 import org.apache.commons.collections4.map.HashedMap;
 import org.joml.Vector3f;
 import resource.ResourceLoader;
 import resource.implemented.ImageResource;
+import resource.implemented.ModelResource;
 import system.System;
 
 import java.awt.image.BufferedImage;
@@ -20,6 +22,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -74,11 +77,11 @@ public class Game implements Runnable{
                 update();
                 next_game_tick += skip_ticks;
                 loops++;
-                ups.tick(true);
+                ups.tick(false);
             }
             interpolation = (java.lang.System.nanoTime() + skip_ticks - next_game_tick) / skip_ticks;
             render(interpolation);
-            fps.tick(true);
+            fps.tick(false);
         }
 
     }
@@ -100,6 +103,8 @@ public class Game implements Runnable{
         window.init();
 
         Texture t = new Texture(new ImageResource("grassblock.png").get_as_object());
+        Model m = new ModelResource("cube.obj").get_as_object();
+        java.lang.System.out.println(m);
 
         ECS ecs = ECSLoader.test(window);
         ecs_list.put("play_level",ecs);

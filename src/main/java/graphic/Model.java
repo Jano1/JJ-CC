@@ -1,9 +1,11 @@
 package graphic;
 
+import com.google.gson.Gson;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -46,6 +48,32 @@ public class Model {
         return faces;
     }
 
+    public float[] vertices_array() {
+        check_calculations();
+        return vertices_array;
+    }
+
+    public float[] textures_array() {
+        check_calculations();
+        return textures_array;
+    }
+
+    public float[] normals_array() {
+        check_calculations();
+        return normals_array;
+    }
+
+    public int[] indices_array() {
+        check_calculations();
+        return indices_array;
+    }
+
+    private void check_calculations(){
+        if(vertices_array == null || textures_array == null || normals_array == null || indices_array == null){
+            calculate_arrays();
+        }
+    }
+
     public void calculate_arrays(){
         List<Integer> indices = new ArrayList();
         vertices_array = new float[vertices.size() * 3];
@@ -84,19 +112,9 @@ public class Model {
         }
     }
 
-    public float[] vertices_array() {
-        return vertices_array;
-    }
-
-    public float[] textures_array() {
-        return textures_array;
-    }
-
-    public float[] normals_array() {
-        return normals_array;
-    }
-
-    public int[] indices_array() {
-        return indices_array;
+    @Override
+    public String toString() {
+        Gson json = new Gson();
+        return json.toJson(this);
     }
 }

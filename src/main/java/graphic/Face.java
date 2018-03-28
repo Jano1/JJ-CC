@@ -1,5 +1,7 @@
 package graphic;
 
+import java.util.Arrays;
+
 public class Face {
 
     /**
@@ -35,5 +37,12 @@ public class Face {
 
     public IndexGroup[] get_face_vertex_indices() {
         return indexGroups;
+    }
+
+    @Override
+    public String toString() {
+        return "Face{" +
+                "indexGroups=" + Arrays.toString(indexGroups) +
+                '}';
     }
 }

@@ -14,4 +14,13 @@ public class IndexGroup {
         idxTextCoord = NO_VALUE;
         idxVecNormal = NO_VALUE;
     }
+
+    @Override
+    public String toString() {
+        return "IndexGroup{" +
+                "idxPos=" + idxPos +
+                ", idxTextCoord=" + idxTextCoord +
+                ", idxVecNormal=" + idxVecNormal +
+                '}';
+    }
 }
