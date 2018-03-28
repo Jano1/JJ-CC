@@ -12,24 +12,24 @@ import java.util.Map;
  * Created by Jan-Frederik Leißner on 24.03.2018.
  */
 public class ContextManager {
-    Map<String,Context> contexts;
+    Map<String, Context> contexts;
 
-    public ContextManager(){
+    public ContextManager() {
         contexts = new HashedMap<>();
         load();
     }
 
-    public void add(Context context){
-        contexts.put(context.get_name(),context);
+    public void add(Context context) {
+        contexts.put(context.get_name(), context);
     }
 
-    public Context get(String name){
+    public Context get(String name) {
         return contexts.get(name);
     }
 
-    private void load(){
-        for(ContextResource resource : ResourceLoader.load_all("context",ContextResource.class)){
-            contexts.put(resource.get_name(),resource.get_as_object());
+    private void load() {
+        for (ContextResource resource : ResourceLoader.load_all("context", ContextResource.class)) {
+            contexts.put(resource.get_name(), resource.get_as_object());
         }
     }
 

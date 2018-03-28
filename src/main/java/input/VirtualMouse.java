@@ -11,25 +11,9 @@ import static org.lwjgl.glfw.GLFW.GLFW_RELEASE;
  */
 public class VirtualMouse {
     private final int MOUSE_SIZE = 16;
-
+    long window;
     private int[] mouseButtonStates = new int[MOUSE_SIZE];
     private boolean[] activeMouseButtons = new boolean[MOUSE_SIZE];
-
-    private long lastMouseNS = 0;
-    private long mouseDoubleClickPeriodNS = 1000000000 / 5; //5th of a second for double click.
-
-    private Vector2d position = new Vector2d(0,0);
-    private Vector2d position_velocity = new Vector2d(0,0);
-    private long last_position_measure = 0;
-
-    private Vector2d scroll_offset = new Vector2d(0,0);
-    private Vector2d scroll_offset_velocity = new Vector2d(0,0);
-    private long last_scroll_offset_measure = 0;
-
-    private boolean cursor_in_window = true;
-
-    long window;
-
     protected GLFWMouseButtonCallback mouse = new GLFWMouseButtonCallback() {
         @Override
         public void invoke(long window, int button, int action, int mods) {
@@ -37,33 +21,39 @@ public class VirtualMouse {
             mouseButtonStates[button] = action;
         }
     };
-
+    private long lastMouseNS = 0;
+    private long mouseDoubleClickPeriodNS = 1000000000 / 5; //5th of a second for double click.
+    private Vector2d position = new Vector2d(0, 0);
+    private Vector2d position_velocity = new Vector2d(0, 0);
+    private long last_position_measure = 0;
     protected GLFWCursorPosCallback cursor = new GLFWCursorPosCallback() {
         @Override
         public void invoke(long window, double xpos, double ypos) {
             long time = System.nanoTime();
-            Vector2d position_difference = new Vector2d(xpos-position.x,ypos-position.y);
-            long time_difference = time-last_position_measure;
-            position_velocity = position_difference.mul(1.0/time_difference);
+            Vector2d position_difference = new Vector2d(xpos - position.x, ypos - position.y);
+            long time_difference = time - last_position_measure;
+            position_velocity = position_difference.mul(1.0 / time_difference);
             position.x = xpos;
             position.y = ypos;
             last_position_measure = time;
         }
     };
-
+    private Vector2d scroll_offset = new Vector2d(0, 0);
+    private Vector2d scroll_offset_velocity = new Vector2d(0, 0);
+    private long last_scroll_offset_measure = 0;
     protected GLFWScrollCallback wheel = new GLFWScrollCallback() {
         @Override
         public void invoke(long window, double xoffset, double yoffset) {
             long time = System.nanoTime();
-            Vector2d scroll_difference = new Vector2d(xoffset-scroll_offset.x,yoffset-scroll_offset.y);
-            long time_difference = time-last_scroll_offset_measure;
-            scroll_offset_velocity = scroll_difference.mul(1.0/time_difference);
+            Vector2d scroll_difference = new Vector2d(xoffset - scroll_offset.x, yoffset - scroll_offset.y);
+            long time_difference = time - last_scroll_offset_measure;
+            scroll_offset_velocity = scroll_difference.mul(1.0 / time_difference);
             scroll_offset.x = xoffset;
             scroll_offset.y = yoffset;
             last_scroll_offset_measure = time;
         }
     };
-
+    private boolean cursor_in_window = true;
     protected GLFWCursorEnterCallback focus = new GLFWCursorEnterCallback() {
         @Override
         public void invoke(long window, boolean entered) {
@@ -73,10 +63,10 @@ public class VirtualMouse {
 
     public VirtualMouse(long window) {
         this.window = window;
-        GLFW.glfwSetMouseButtonCallback(window,mouse);
-        GLFW.glfwSetCursorPosCallback(window,cursor);
-        GLFW.glfwSetScrollCallback(window,wheel);
-        GLFW.glfwSetCursorEnterCallback(window,focus);
+        GLFW.glfwSetMouseButtonCallback(window, mouse);
+        GLFW.glfwSetCursorPosCallback(window, cursor);
+        GLFW.glfwSetScrollCallback(window, wheel);
+        GLFW.glfwSetCursorEnterCallback(window, focus);
     }
 
     public void reset() {
@@ -127,7 +117,7 @@ public class VirtualMouse {
         return scroll_offset;
     }
 
-    public boolean cursor_in_window(){
+    public boolean cursor_in_window() {
         return cursor_in_window;
     }
 

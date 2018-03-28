@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class GravitySystem extends System {
 
-    public GravitySystem(){
+    public GravitySystem() {
         super(ForceComponent.class, MassComponent.class);
     }
 

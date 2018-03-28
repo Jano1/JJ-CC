@@ -2,10 +2,10 @@ package ecs.components;
 
 import component.Component;
 import input.Action;
-import input.Context;
 import input.Range;
 import input.State;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,6 +18,13 @@ public class InputComponent extends Component<InputComponent> {
     public List<State> states;
     public List<Range> ranges;
 
+    public InputComponent(String context_name) {
+        this.context_name = context_name;
+        actions = new ArrayList<>();
+        states = new ArrayList<>();
+        ranges = new ArrayList<>();
+    }
+
     @Override
     public boolean equal_values(InputComponent inputComponent) {
         return false;
@@ -26,5 +33,15 @@ public class InputComponent extends Component<InputComponent> {
     @Override
     public InputComponent clone() {
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "InputComponent{" +
+                "context_name='" + context_name + '\'' +
+                ", actions=" + actions +
+                ", states=" + states +
+                ", ranges=" + ranges +
+                '}';
     }
 }
