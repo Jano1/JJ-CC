@@ -35,4 +35,14 @@ public class InputComponent extends Component<InputComponent> {
     public InputComponent clone() {
         return null;
     }
+
+    @Override
+    public String toString() {
+        return "InputComponent{" +
+                "context_name='" + context_name + '\'' +
+                ", actions=" + actions +
+                ", states=" + states +
+                ", ranges=" + ranges +
+                '}';
+    }
 }

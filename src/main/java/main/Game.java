@@ -28,10 +28,12 @@ public class Game implements Runnable{
 
     Map<String,ECS> ecs_list;
     List<String> to_tick;
+    Window window;
 
     public Game(){
         ecs_list = new HashedMap<>();
         to_tick = new ArrayList<>();
+        window = new Window("test",100,100,true);
     }
 
     @Override
@@ -58,17 +60,17 @@ public class Game implements Runnable{
         XPSCounter fps = new XPSCounter("FPS");
 
         boolean running = true;
-        while (running) {
+        while (running && !window.windowShouldClose()) {
             loops = 0;
             while( java.lang.System.nanoTime() > next_game_tick && loops < max_frameskip) {
                 update();
                 next_game_tick += skip_ticks;
                 loops++;
-                ups.tick();
+                ups.tick(true);
             }
             interpolation = (java.lang.System.nanoTime() + skip_ticks - next_game_tick) / skip_ticks;
             render(interpolation);
-            fps.tick();
+            fps.tick(true);
         }
 
     }
@@ -77,6 +79,7 @@ public class Game implements Runnable{
         for(String name : to_tick){
             ecs_list.get(name).render(interpolation);
         }
+        window.update();
     }
 
     private void update() {
@@ -86,7 +89,8 @@ public class Game implements Runnable{
     }
 
     private void init() {
-        ECS ecs = ECSLoader.test();
+        window.init();
+        ECS ecs = ECSLoader.test(window);
         ecs_list.put("play_level",ecs);
         to_tick.add("play_level");
     }
@@ -107,11 +111,13 @@ class XPSCounter{
         this(name,java.lang.System.nanoTime());
     }
 
-    public void tick(){
+    public void tick(boolean show){
         if(java.lang.System.nanoTime() <=  start+(1000000000)){
             xps++;
         }else{
-            java.lang.System.out.println(name+": "+xps);
+            if(show){
+                java.lang.System.out.println(name+": "+(xps));
+            }
             xps = 0;
             start = java.lang.System.nanoTime();
         }
@@ -119,11 +125,10 @@ class XPSCounter{
 }
 
 class ECSLoader{
-    public static ECS test(){
-        long window = 1;
+    public static ECS test(Window window){
 
         ECS ecs = new ECS(10000);
-        ecs.register_system_group("input",new System[]{new InputSystem(window)});
+        ecs.register_system_group("input",new System[]{new InputSystem(window.getWindowHandle())});
         ecs.register_system_group("movement_1",new System[]{new MovementSystem()});
 
             ID player = ecs.create_entity(Blueprint.empty_blueprint());
@@ -132,6 +137,7 @@ class ECSLoader{
             player.add(new TimeComponent(25));
             player.add(new InputComponent("base.context"));
             player.add(new CameraComponent(new Vector3f(1,1,0),new Vector3f(0,0,1),70,(16/9),0.1f,20.0f,true));
+
         return ecs;
     }
 }
