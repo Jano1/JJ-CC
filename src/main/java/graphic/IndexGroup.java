@@ -3,24 +3,24 @@ package graphic;
 public class IndexGroup {
     public static final int NO_VALUE = -1;
 
-    public int idxPos;
+    public int position;
 
-    public int idxTextCoord;
+    public int texture_vertice;
 
-    public int idxVecNormal;
+    public int vector_normal;
 
     public IndexGroup() {
-        idxPos = NO_VALUE;
-        idxTextCoord = NO_VALUE;
-        idxVecNormal = NO_VALUE;
+        position = NO_VALUE;
+        texture_vertice = NO_VALUE;
+        vector_normal = NO_VALUE;
     }
 
     @Override
     public String toString() {
         return "IndexGroup{" +
-                "idxPos=" + idxPos +
-                ", idxTextCoord=" + idxTextCoord +
-                ", idxVecNormal=" + idxVecNormal +
+                "position=" + position +
+                ", texture_vertice=" + texture_vertice +
+                ", vector_normal=" + vector_normal +
                 '}';
     }
 }
