@@ -25,6 +25,7 @@ public class Window {
         this.resized = false;
     }
 
+
     public void init() {
         // Setup an error callback. The default implementation
         // will print the error message in System.err.
