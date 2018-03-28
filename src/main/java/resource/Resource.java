@@ -1,6 +1,8 @@
 package resource;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URISyntaxException;
 
 /**
@@ -19,7 +21,7 @@ public abstract class Resource<T> {
         return new File(ResourceLoader.load(type+"/"+name).toURI());
     }
 
-    public abstract T get_as_object() throws URISyntaxException;
+    public abstract T get_as_object() throws URISyntaxException, IOException;
 
     public String get_type() {
         return type;
