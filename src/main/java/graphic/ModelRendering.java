@@ -1,8 +1,6 @@
 package graphic;
 
-import static org.lwjgl.opengl.GL11.GL_TRIANGLES;
-import static org.lwjgl.opengl.GL11.GL_UNSIGNED_INT;
-import static org.lwjgl.opengl.GL11.glDrawElements;
+import static org.lwjgl.opengl.GL11.*;
 
 /**
  * Created by Jan-Frederik Leißner on 28.03.2018.

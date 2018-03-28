@@ -1,10 +1,12 @@
 package ecs.systems;
 
 import ecs.ID;
-import ecs.components.*;
+import ecs.components.MaterialComponent;
+import ecs.components.ModelComponent;
+import ecs.components.PositionComponent;
+import ecs.components.TextureComponent;
 import system.System;
 
-import javax.jws.WebParam;
 import java.util.List;
 
 /**

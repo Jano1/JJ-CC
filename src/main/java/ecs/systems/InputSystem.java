@@ -10,7 +10,7 @@ import system.System;
 
 import java.util.List;
 
-import static org.lwjgl.glfw.GLFW.*;
+import static org.lwjgl.glfw.GLFW.glfwPollEvents;
 
 /**
  * Created by Jan-Frederik Leißner on 24.03.2018.

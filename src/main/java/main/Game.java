@@ -1,28 +1,16 @@
 package main;
 
-import de.matthiasmann.twl.utils.PNGDecoder;
 import ecs.Blueprint;
 import ecs.ECS;
 import ecs.ID;
 import ecs.components.*;
 import ecs.systems.InputSystem;
 import ecs.systems.MovementSystem;
-import graphic.Image;
-import graphic.Model;
-import graphic.Texture;
 import org.apache.commons.collections4.map.HashedMap;
 import org.joml.Vector3f;
-import resource.ResourceLoader;
-import resource.implemented.ImageResource;
-import resource.implemented.ModelResource;
 import system.System;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 

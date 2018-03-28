@@ -2,7 +2,6 @@ package ecs.components;
 
 import component.Component;
 import input.Action;
-import input.Context;
 import input.Range;
 import input.State;
 

@@ -3,8 +3,6 @@ package resource.implemented;
 import graphic.Image;
 import resource.Resource;
 
-import java.awt.image.BufferedImage;
-import java.io.InputStream;
 import java.net.URISyntaxException;
 
 /**

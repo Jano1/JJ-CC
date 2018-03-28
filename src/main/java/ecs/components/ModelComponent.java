@@ -1,8 +1,6 @@
 package ecs.components;
 
 import component.Component;
-
-import java.io.File;
 /**
  * Created by Jan-Frederik Leißner on 24.03.2018.
  */
