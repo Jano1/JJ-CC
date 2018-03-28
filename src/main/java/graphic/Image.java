@@ -48,7 +48,7 @@ public class Image {
         return decoded_png;
     }
 
-    public void reset(){
+    public void reset() {
         buffered = null;
         decoded_png = null;
         try {

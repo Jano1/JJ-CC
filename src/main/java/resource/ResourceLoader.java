@@ -12,21 +12,21 @@ import java.util.List;
  */
 public class ResourceLoader {
 
-    public static URL load(String resource){
-        URL url ;
+    public static URL load(String resource) {
+        URL url;
         //1. Versuch, ThreadLoader
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        if(classLoader != null){
+        if (classLoader != null) {
             url = classLoader.getResource(resource);
-            if(url != null){
+            if (url != null) {
                 return url;
             }
         }
         //2. Versuch, ClassLoader
         classLoader = System.class.getClassLoader();
-        if(classLoader != null){
+        if (classLoader != null) {
             url = classLoader.getResource(resource);
-            if(url != null){
+            if (url != null) {
                 return url;
             }
         }
@@ -34,17 +34,17 @@ public class ResourceLoader {
         return ClassLoader.getSystemResource(resource);
     }
 
-    public static String[] load_all_names(String type){
+    public static String[] load_all_names(String type) {
         File directory = new File(load(type).getPath());
-        if(directory.isDirectory()){
+        if (directory.isDirectory()) {
             return directory.list();
         }
         return null;
     }
 
-    public static <T extends Resource> List<T> load_all(String type,Class<T> resource_class){
+    public static <T extends Resource> List<T> load_all(String type, Class<T> resource_class) {
         List<T> loaded = new ArrayList<>();
-        for(String name : load_all_names(type)){
+        for (String name : load_all_names(type)) {
             Constructor<T> constructor = null;
             try {
                 constructor = resource_class.getConstructor(String.class);

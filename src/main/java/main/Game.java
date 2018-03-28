@@ -17,22 +17,21 @@ import java.util.Map;
 /**
  * Created by Jan-Frederik Leißner on 27.03.2018.
  */
-public class Game implements Runnable{
+public class Game implements Runnable {
 
-    public static void main(String[] args){
+    Map<String, ECS> ecs_list;
+    List<String> to_tick;
+    Window window;
+    public Game() {
+        ecs_list = new HashedMap<>();
+        to_tick = new ArrayList<>();
+        window = new Window("test", 100, 100, true);
+    }
+
+    public static void main(String[] args) {
         Game game = new Game();
         Thread thread = new Thread(game);
         thread.start();
-    }
-
-    Map<String,ECS> ecs_list;
-    List<String> to_tick;
-    Window window;
-
-    public Game(){
-        ecs_list = new HashedMap<>();
-        to_tick = new ArrayList<>();
-        window = new Window("test",100,100,true);
     }
 
     @Override
@@ -48,7 +47,7 @@ public class Game implements Runnable{
     protected void loop() {
         int ticks_per_second = 25;
         int max_frameskip = 5;
-        int skip_ticks = 1000000000/ticks_per_second;
+        int skip_ticks = 1000000000 / ticks_per_second;
 
         long next_game_tick = java.lang.System.nanoTime();
 
@@ -61,7 +60,7 @@ public class Game implements Runnable{
         boolean running = true;
         while (running && !window.windowShouldClose()) {
             loops = 0;
-            while( java.lang.System.nanoTime() > next_game_tick && loops < max_frameskip) {
+            while (java.lang.System.nanoTime() > next_game_tick && loops < max_frameskip) {
                 update();
                 next_game_tick += skip_ticks;
                 loops++;
@@ -75,14 +74,14 @@ public class Game implements Runnable{
     }
 
     private void render(float interpolation) {
-        for(String name : to_tick){
+        for (String name : to_tick) {
             ecs_list.get(name).render(interpolation);
         }
         window.update();
     }
 
     private void update() {
-        for(String name : to_tick){
+        for (String name : to_tick) {
             ecs_list.get(name).tick();
         }
     }
@@ -91,32 +90,32 @@ public class Game implements Runnable{
         window.init();
 
         ECS ecs = ECSLoader.test(window);
-        ecs_list.put("play_level",ecs);
+        ecs_list.put("play_level", ecs);
         to_tick.add("play_level");
     }
 }
 
-class XPSCounter{
+class XPSCounter {
     long start;
     int xps;
     String name;
 
-    public XPSCounter(String name,long start){
+    public XPSCounter(String name, long start) {
         this.name = name;
         this.start = start;
         this.xps = 0;
     }
 
-    public XPSCounter(String name){
-        this(name,java.lang.System.nanoTime());
+    public XPSCounter(String name) {
+        this(name, java.lang.System.nanoTime());
     }
 
-    public void tick(boolean show){
-        if(java.lang.System.nanoTime() <=  start+(1000000000)){
+    public void tick(boolean show) {
+        if (java.lang.System.nanoTime() <= start + (1000000000)) {
             xps++;
-        }else{
-            if(show){
-                java.lang.System.out.println(name+": "+(xps));
+        } else {
+            if (show) {
+                java.lang.System.out.println(name + ": " + (xps));
             }
             xps = 0;
             start = java.lang.System.nanoTime();
@@ -124,19 +123,19 @@ class XPSCounter{
     }
 }
 
-class ECSLoader{
-    public static ECS test(Window window){
+class ECSLoader {
+    public static ECS test(Window window) {
 
         ECS ecs = new ECS(10000);
-        ecs.register_system_group("input",new System[]{new InputSystem(window.getWindowHandle())});
-        ecs.register_system_group("movement_1",new System[]{new MovementSystem()});
+        ecs.register_system_group("input", new System[]{new InputSystem(window.getWindowHandle())});
+        ecs.register_system_group("movement_1", new System[]{new MovementSystem()});
 
-            ID player = ecs.create_entity(Blueprint.empty_blueprint());
-            player.add(new PositionComponent(new Vector3f(1,1,0)));
-            player.add(new VelocityComponent(new Vector3f(1,0,0)));
-            player.add(new TimeComponent(25));
-            player.add(new InputComponent("base.context"));
-            player.add(new CameraComponent(70,0.1f,20.0f,true));
+        ID player = ecs.create_entity(Blueprint.empty_blueprint());
+        player.add(new PositionComponent(new Vector3f(1, 1, 0)));
+        player.add(new VelocityComponent(new Vector3f(1, 0, 0)));
+        player.add(new TimeComponent(25));
+        player.add(new InputComponent("base.context"));
+        player.add(new CameraComponent(70, 0.1f, 20.0f, true));
 
         return ecs;
     }

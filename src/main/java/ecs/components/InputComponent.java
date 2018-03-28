@@ -18,7 +18,7 @@ public class InputComponent extends Component<InputComponent> {
     public List<State> states;
     public List<Range> ranges;
 
-    public InputComponent(String context_name){
+    public InputComponent(String context_name) {
         this.context_name = context_name;
         actions = new ArrayList<>();
         states = new ArrayList<>();

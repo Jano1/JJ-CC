@@ -30,6 +30,6 @@ public class CameraComponent extends Component<CameraComponent> {
 
     @Override
     public CameraComponent clone() {
-        return new CameraComponent(field_of_view,distance_near,distance_far,active);
+        return new CameraComponent(field_of_view, distance_near, distance_far, active);
     }
 }

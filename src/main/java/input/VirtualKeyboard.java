@@ -12,12 +12,9 @@ import static org.lwjgl.glfw.GLFW.GLFW_RELEASE;
  */
 public class VirtualKeyboard {
     private final int KEYBOARD_SIZE = 512;
-
+    long window;
     private int[] keyStates = new int[KEYBOARD_SIZE];
     private boolean[] activeKeys = new boolean[KEYBOARD_SIZE];
-
-    long window;
-
     protected GLFWKeyCallback keyboard = new GLFWKeyCallback() {
         @Override
         public void invoke(long window, int key, int scancode, int action, int mods) {
@@ -28,7 +25,7 @@ public class VirtualKeyboard {
 
     public VirtualKeyboard(long window) {
         this.window = window;
-        GLFW.glfwSetKeyCallback(window,keyboard);
+        GLFW.glfwSetKeyCallback(window, keyboard);
     }
 
     public void reset() {

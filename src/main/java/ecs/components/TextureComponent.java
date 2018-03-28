@@ -22,6 +22,6 @@ public class TextureComponent extends Component<TextureComponent> {
 
     @Override
     public TextureComponent clone() {
-        return new TextureComponent(image_name,heightmap_image_name);
+        return new TextureComponent(image_name, heightmap_image_name);
     }
 }

@@ -18,17 +18,17 @@ public class AccelerationComponent extends BasedComponent<AccelerationComponent>
         this.scaling = scaling;
     }
 
-    public AccelerationComponent(Vector3f position){
-        this(position,new Vector3f(0,0,0),new Vector3f(0,0,0));
+    public AccelerationComponent(Vector3f position) {
+        this(position, new Vector3f(0, 0, 0), new Vector3f(0, 0, 0));
     }
 
-    public AccelerationComponent(){
-        this(new Vector3f(0,0,0));
+    public AccelerationComponent() {
+        this(new Vector3f(0, 0, 0));
     }
 
     @Override
     public AccelerationComponent absolute() {
-        if(has_base()){
+        if (has_base()) {
             AccelerationComponent base = base().absolute();
             return new AccelerationComponent(
                     position.add(base.position),
@@ -47,9 +47,9 @@ public class AccelerationComponent extends BasedComponent<AccelerationComponent>
     @Override
     public AccelerationComponent clone() {
         return new AccelerationComponent(
-                new Vector3f(position.x,position.y,position.z),
-                new Vector3f(rotation.x,rotation.y,rotation.z),
-                new Vector3f(scaling.x,scaling.y,scaling.z)
+                new Vector3f(position.x, position.y, position.z),
+                new Vector3f(rotation.x, rotation.y, rotation.z),
+                new Vector3f(scaling.x, scaling.y, scaling.z)
         );
     }
 }

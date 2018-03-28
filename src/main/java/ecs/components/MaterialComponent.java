@@ -6,7 +6,7 @@ import org.joml.Vector4f;
 /**
  * Created by Jan-Frederik Leißner on 28.03.2018.
  */
-public class MaterialComponent extends Component<MaterialComponent>{
+public class MaterialComponent extends Component<MaterialComponent> {
 
     public static final Vector4f DEFAULT = new Vector4f(1.0f, 1.0f, 1.0f, 1.0f);
 
@@ -29,6 +29,6 @@ public class MaterialComponent extends Component<MaterialComponent>{
 
     @Override
     public MaterialComponent clone() {
-        return new MaterialComponent(ambient_color,diffuse_color,specular_color,reflectance);
+        return new MaterialComponent(ambient_color, diffuse_color, specular_color, reflectance);
     }
 }

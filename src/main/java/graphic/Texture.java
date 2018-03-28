@@ -50,7 +50,7 @@ public class Texture {
         return id;
     }
 
-    public boolean is_loaded(){
+    public boolean is_loaded() {
         return id != -1;
     }
 

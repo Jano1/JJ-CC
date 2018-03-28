@@ -18,17 +18,17 @@ public class PositionComponent extends HistoricBasedComponent<PositionComponent>
         this.scaling = scaling;
     }
 
-    public PositionComponent(Vector3f position){
-        this(position,new Vector3f(0,0,0),new Vector3f(0,0,0));
+    public PositionComponent(Vector3f position) {
+        this(position, new Vector3f(0, 0, 0), new Vector3f(0, 0, 0));
     }
 
-    public PositionComponent(){
-        this(new Vector3f(0,0,0));
+    public PositionComponent() {
+        this(new Vector3f(0, 0, 0));
     }
 
     @Override
     public PositionComponent absolute() {
-        if(has_base()){
+        if (has_base()) {
             PositionComponent base = base().absolute();
             return new PositionComponent(
                     position.add(base.position),
@@ -41,7 +41,7 @@ public class PositionComponent extends HistoricBasedComponent<PositionComponent>
 
     @Override
     public void reset() {
-        if(has_snap()){
+        if (has_snap()) {
             position = snap.position;
             rotation = snap.rotation;
             scaling = snap.scaling;
@@ -57,9 +57,9 @@ public class PositionComponent extends HistoricBasedComponent<PositionComponent>
     @Override
     public PositionComponent clone() {
         return new PositionComponent(
-                new Vector3f(position.x,position.y,position.z),
-                new Vector3f(rotation.x,rotation.y,rotation.z),
-                new Vector3f(scaling.x,scaling.y,scaling.z)
+                new Vector3f(position.x, position.y, position.z),
+                new Vector3f(rotation.x, rotation.y, rotation.z),
+                new Vector3f(scaling.x, scaling.y, scaling.z)
         );
     }
 }

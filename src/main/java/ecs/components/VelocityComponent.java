@@ -18,17 +18,17 @@ public class VelocityComponent extends BasedComponent<VelocityComponent> {
         this.scaling = scaling;
     }
 
-    public VelocityComponent(Vector3f position){
-        this(position,new Vector3f(0,0,0),new Vector3f(0,0,0));
+    public VelocityComponent(Vector3f position) {
+        this(position, new Vector3f(0, 0, 0), new Vector3f(0, 0, 0));
     }
 
-    public VelocityComponent(){
-        this(new Vector3f(0,0,0));
+    public VelocityComponent() {
+        this(new Vector3f(0, 0, 0));
     }
 
     @Override
     public VelocityComponent absolute() {
-        if(has_base()){
+        if (has_base()) {
             VelocityComponent base = base().absolute();
             return new VelocityComponent(
                     position.add(base.position),
@@ -47,9 +47,9 @@ public class VelocityComponent extends BasedComponent<VelocityComponent> {
     @Override
     public VelocityComponent clone() {
         return new VelocityComponent(
-                new Vector3f(position.x,position.y,position.z),
-                new Vector3f(rotation.x,rotation.y,rotation.z),
-                new Vector3f(scaling.x,scaling.y,scaling.z)
+                new Vector3f(position.x, position.y, position.z),
+                new Vector3f(rotation.x, rotation.y, rotation.z),
+                new Vector3f(scaling.x, scaling.y, scaling.z)
         );
     }
 }

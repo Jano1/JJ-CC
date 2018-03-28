@@ -15,8 +15,8 @@ import java.util.List;
  */
 public class MovementSystem extends System {
 
-    public MovementSystem(){
-        super(PositionComponent.class,VelocityComponent.class);
+    public MovementSystem() {
+        super(PositionComponent.class, VelocityComponent.class);
     }
 
     public void handle(List<ID> to_handle) {
@@ -29,15 +29,15 @@ public class MovementSystem extends System {
             boolean has_acceleration = (acceleration != null);
 
             float delta_t = single_id.get(TimeComponent.class).delta_t();
-            position.position.add(velocity.position.mul(delta_t, new Vector3f(0,0,0)));
-            position.rotation.add(velocity.rotation.mul(delta_t, new Vector3f(0,0,0)));
-            position.scaling.add(velocity.scaling.mul(delta_t, new Vector3f(0,0,0)));
+            position.position.add(velocity.position.mul(delta_t, new Vector3f(0, 0, 0)));
+            position.rotation.add(velocity.rotation.mul(delta_t, new Vector3f(0, 0, 0)));
+            position.scaling.add(velocity.scaling.mul(delta_t, new Vector3f(0, 0, 0)));
 
-            if(has_acceleration){
+            if (has_acceleration) {
                 float delta_t2 = delta_t * delta_t;
-                position.position.add(acceleration.position.mul(delta_t2, new Vector3f(0,0,0)));
-                position.rotation.add(acceleration.rotation.mul(delta_t2, new Vector3f(0,0,0)));
-                position.scaling.add(acceleration.scaling.mul(delta_t2, new Vector3f(0,0,0)));
+                position.position.add(acceleration.position.mul(delta_t2, new Vector3f(0, 0, 0)));
+                position.rotation.add(acceleration.rotation.mul(delta_t2, new Vector3f(0, 0, 0)));
+                position.scaling.add(acceleration.scaling.mul(delta_t2, new Vector3f(0, 0, 0)));
             }
         }
     }

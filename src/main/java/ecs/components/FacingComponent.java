@@ -6,7 +6,7 @@ import org.joml.Vector3f;
 /**
  * Created by Jan-Frederik Leißner on 28.03.2018.
  */
-public class FacingComponent extends Component<FacingComponent>{
+public class FacingComponent extends Component<FacingComponent> {
 
     Vector3f facing_direction;
 
@@ -25,6 +25,6 @@ public class FacingComponent extends Component<FacingComponent>{
 
     @Override
     public FacingComponent clone() {
-        return new FacingComponent(new Vector3f(facing_direction.x,facing_direction.y,facing_direction.z));
+        return new FacingComponent(new Vector3f(facing_direction.x, facing_direction.y, facing_direction.z));
     }
 }

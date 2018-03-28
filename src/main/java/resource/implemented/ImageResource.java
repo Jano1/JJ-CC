@@ -8,7 +8,7 @@ import java.net.URISyntaxException;
 /**
  * Created by Jan-Frederik Leißner on 28.03.2018.
  */
-public class ImageResource extends Resource<Image>{
+public class ImageResource extends Resource<Image> {
 
     public ImageResource(String name) {
         super("asset/image", name);

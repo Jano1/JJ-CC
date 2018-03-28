@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class RenderSystem extends System {
 
-    public RenderSystem(){
+    public RenderSystem() {
         super(PositionComponent.class, MaterialComponent.class, ModelComponent.class, TextureComponent.class);
     }
 

@@ -65,7 +65,7 @@ public class Model {
         return normals;
     }
 
-    public List<Face> faces(){
+    public List<Face> faces() {
         return faces;
     }
 
@@ -89,8 +89,8 @@ public class Model {
         return indices_array;
     }
 
-    private void check_calculations(){
-        if(!is_calculated()){
+    private void check_calculations() {
+        if (!is_calculated()) {
             calculate_arrays();
         }
     }
@@ -115,13 +115,13 @@ public class Model {
         return vertex_buffer_ids;
     }
 
-    public void check_loading(){
-        if(!is_loaded_in_opengl()){
+    public void check_loading() {
+        if (!is_loaded_in_opengl()) {
             load_into_opengl();
         }
     }
 
-    public void calculate_arrays(){
+    public void calculate_arrays() {
         List<Integer> indices = new ArrayList();
         vertices_array = new float[vertices.size() * 3];
         int i = 0;
@@ -159,7 +159,7 @@ public class Model {
         }
     }
 
-    public void load_into_opengl(){
+    public void load_into_opengl() {
         FloatBuffer posBuffer = null;
         FloatBuffer textCoordsBuffer = null;
         FloatBuffer vecNormalsBuffer = null;
@@ -222,11 +222,11 @@ public class Model {
         }
     }
 
-    public boolean is_calculated(){
+    public boolean is_calculated() {
         return (vertices_array != null && textures_array != null && normals_array != null && indices_array != null);
     }
 
-    public boolean is_loaded_in_opengl(){
+    public boolean is_loaded_in_opengl() {
         return (vertex_array_id != -1 && vertex_buffer_id != -1 && vertex_count != -1);
     }
 
