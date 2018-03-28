@@ -14,16 +14,12 @@ public class Texture {
     private int height;
 
     public Texture(Image image) throws Exception {
-        // Load Texture file
-        PNGDecoder decoder = image.as_png_decoded();
-
-        this.width = decoder.getWidth();
-        this.height = decoder.getHeight();
+        this.width = image.as_png_decoded().getWidth();
+        this.height = image.as_png_decoded().getHeight();
 
         // Load texture contents into a byte buffer
-        ByteBuffer buf = ByteBuffer.allocateDirect(
-                4 * decoder.getWidth() * decoder.getHeight());
-        decoder.decode(buf, decoder.getWidth() * 4, Format.RGBA);
+        ByteBuffer buf = ByteBuffer.allocateDirect(4 * this.width * this.height);
+        image.as_png_decoded().decode(buf, this.width * 4, Format.RGBA);
         buf.flip();
 
         // Create a new OpenGL texture

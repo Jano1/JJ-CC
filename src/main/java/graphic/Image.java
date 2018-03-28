@@ -35,9 +35,8 @@ public class Image {
         if (input_stream == null) {
             ByteArrayOutputStream os = new ByteArrayOutputStream();
             ImageIO.write(as_buffered_image(), "png", os);
-            InputStream fis = new ByteArrayInputStream(os.toByteArray());
+            input_stream = new ByteArrayInputStream(os.toByteArray());
             os.close();
-            fis.close();
         }
         return input_stream;
     }

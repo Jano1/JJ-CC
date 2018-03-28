@@ -1,16 +1,24 @@
 package main;
 
+import de.matthiasmann.twl.utils.PNGDecoder;
 import ecs.Blueprint;
 import ecs.ECS;
 import ecs.ID;
 import ecs.components.*;
 import ecs.systems.InputSystem;
 import ecs.systems.MovementSystem;
+import graphic.Image;
+import graphic.Texture;
 import org.apache.commons.collections4.map.HashedMap;
 import org.joml.Vector3f;
-import org.lwjgl.glfw.GLFW;
+import resource.ResourceLoader;
+import resource.implemented.ImageResource;
 import system.System;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -88,8 +96,11 @@ public class Game implements Runnable{
         }
     }
 
-    private void init() {
+    private void init() throws Exception {
         window.init();
+
+        Texture t = new Texture(new ImageResource("grassblock.png").get_as_object());
+
         ECS ecs = ECSLoader.test(window);
         ecs_list.put("play_level",ecs);
         to_tick.add("play_level");
@@ -136,7 +147,7 @@ class ECSLoader{
             player.add(new VelocityComponent(new Vector3f(1,0,0)));
             player.add(new TimeComponent(25));
             player.add(new InputComponent("base.context"));
-            player.add(new CameraComponent(new Vector3f(1,1,0),new Vector3f(0,0,1),70,(16/9),0.1f,20.0f,true));
+            player.add(new CameraComponent(70,0.1f,20.0f,true));
 
         return ecs;
     }
