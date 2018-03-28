@@ -80,7 +80,7 @@ public class Renderer {
         
         renderHud(window, hud);
 
-        //renderAxes(camera);
+//        renderAxes(camera);
     }
 
     private void setupDepthShader() throws Exception {

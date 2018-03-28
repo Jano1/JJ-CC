@@ -36,6 +36,16 @@ public class Scene {
         }
     }
 
+    public void setGameItem(GameItem gameItem) {
+        Mesh mesh = gameItem.getMesh();
+        List<GameItem> list = meshMap.get(mesh);
+        if ( list == null ) {
+            list = new ArrayList<>();
+            meshMap.put(mesh, list);
+        }
+        list.add(gameItem);
+    }
+
     public SkyBox getSkyBox() {
         return skyBox;
     }

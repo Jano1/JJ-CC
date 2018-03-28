@@ -11,12 +11,16 @@ public class PointLight {
     private float intensity;
 
     private Attenuation attenuation;
+
+    private float shadowPosMult;
     
     public PointLight(Vector3f color, Vector3f position, float intensity) {
         attenuation = new Attenuation(1, 0, 0);
         this.color = color;
         this.position = position;
         this.intensity = intensity;
+
+        shadowPosMult = 1;
     }
 
     public PointLight(Vector3f color, Vector3f position, float intensity, Attenuation attenuation) {
@@ -27,6 +31,14 @@ public class PointLight {
     public PointLight(PointLight pointLight) {
         this(new Vector3f(pointLight.getColor()), new Vector3f(pointLight.getPosition()),
                 pointLight.getIntensity(), pointLight.getAttenuation());
+    }
+
+    public float getShadowPosMult() {
+        return shadowPosMult;
+    }
+
+    public void setShadowPosMult(float shadowPosMult) {
+        this.shadowPosMult = shadowPosMult;
     }
 
     public Vector3f getColor() {
