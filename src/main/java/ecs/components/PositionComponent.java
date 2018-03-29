@@ -1,8 +1,9 @@
 package ecs.components;
 
 import component.HistoricBasedComponent;
+import org.joml.Math;
+import org.joml.Matrix3f;
 import org.joml.Vector3f;
-
 /**
  * Created by Jan-Frederik Leißner on 24.03.2018.
  */
@@ -16,6 +17,26 @@ public class PositionComponent extends HistoricBasedComponent<PositionComponent>
         this.position = position;
         this.rotation = rotation;
         this.scaling = scaling;
+    }
+
+    public Vector3f facing_vector(){
+        Matrix3f rotation_matrix = new Matrix3f().rotationXYZ(
+                (float)Math.toRadians(rotation.x),
+                (float)Math.toRadians(rotation.y),
+                (float)Math.toRadians(rotation.z)
+        );
+        return new Vector3f(1f,0f,0f).mul(rotation_matrix).normalize();
+    }
+
+    public Vector3f rotated_facing_vector(float degrees){
+        float angle = (float)Math.toRadians(degrees);
+        Vector3f up = up_vector();
+        return facing_vector().rotateAxis(angle,up.x,up.y,up.z);
+    }
+
+    public Vector3f up_vector(){
+        Vector3f facing = facing_vector();
+        return facing.cross(new Vector3f(0f,1f,0f),new Vector3f()).cross(facing).normalize();
     }
 
     public PositionComponent(Vector3f position) {

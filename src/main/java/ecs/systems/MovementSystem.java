@@ -1,10 +1,8 @@
 package ecs.systems;
 
 import ecs.ID;
-import ecs.components.AccelerationComponent;
-import ecs.components.PositionComponent;
-import ecs.components.TimeComponent;
-import ecs.components.VelocityComponent;
+import ecs.components.*;
+import input.Action;
 import org.joml.Vector3f;
 import system.System;
 
@@ -16,15 +14,36 @@ import java.util.List;
 public class MovementSystem extends System {
 
     public MovementSystem() {
-        super(PositionComponent.class, VelocityComponent.class);
+        super(PositionComponent.class, VelocityComponent.class, TimeComponent.class);
     }
 
     public void handle(List<ID> to_handle) {
         for (ID single_id : to_handle) {
             PositionComponent position = single_id.get(PositionComponent.class);
+            PositionComponent cloned = position.clone();
             position.snap();
 
-            VelocityComponent velocity = single_id.get(VelocityComponent.class);
+            VelocityComponent velocity_base = single_id.get(VelocityComponent.class);
+            VelocityComponent velocity = velocity_base.clone();
+
+            MovementSpeedComponent movement_speed = single_id.get(MovementSpeedComponent.class);
+            if(movement_speed != null){
+                InputComponent input = single_id.get(InputComponent.class);
+                if(input != null){
+                    for(Action action : input.actions){
+                        if(action.toString().equals("move_forward")){
+                            velocity.position.add(movement_speed.position_speed.mul(position.facing_vector(),new Vector3f()));
+                        }else if(action.toString().equals("move_backward")){
+                            velocity.position.add(movement_speed.position_speed.mul(position.rotated_facing_vector(180),new Vector3f()));
+                        }else if(action.toString().equals("move_left")){
+                            velocity.position.add(movement_speed.position_speed.mul(position.rotated_facing_vector(90),new Vector3f()));
+                        }else if(action.toString().equals("move_right")){
+                            velocity.position.add(movement_speed.position_speed.mul(position.rotated_facing_vector(270),new Vector3f()));
+                        }
+                    }
+                }
+            }
+
             AccelerationComponent acceleration = single_id.get(AccelerationComponent.class);
             boolean has_acceleration = (acceleration != null);
 
@@ -38,6 +57,10 @@ public class MovementSystem extends System {
                 position.position.add(acceleration.position.mul(delta_t2, new Vector3f(0, 0, 0)));
                 position.rotation.add(acceleration.rotation.mul(delta_t2, new Vector3f(0, 0, 0)));
                 position.scaling.add(acceleration.scaling.mul(delta_t2, new Vector3f(0, 0, 0)));
+            }
+
+            if(!cloned.equal_values(position)){
+                java.lang.System.out.println(position.position);
             }
         }
     }

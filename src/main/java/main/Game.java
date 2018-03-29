@@ -131,8 +131,9 @@ class ECSLoader {
         ecs.register_system_group("movement_1", new System[]{new MovementSystem()});
 
         ID player = ecs.create_entity(Blueprint.empty_blueprint());
-        player.add(new PositionComponent(new Vector3f(1, 1, 0)));
-        player.add(new VelocityComponent(new Vector3f(1, 0, 0)));
+        player.add(new PositionComponent(new Vector3f(0, 0, 0)));
+        player.add(new VelocityComponent(new Vector3f(0, 0, 0)));
+        player.add(new MovementSpeedComponent(new Vector3f(1,1,1)));
         player.add(new TimeComponent(25));
         player.add(new InputComponent("base.context"));
         player.add(new CameraComponent(70, 0.1f, 20.0f, true));

@@ -25,6 +25,12 @@ public class InputComponent extends Component<InputComponent> {
         ranges = new ArrayList<>();
     }
 
+    public void remove_actions(String... names){
+        for(String name : names){
+            actions.remove(new Action(name));
+        }
+    }
+
     @Override
     public boolean equal_values(InputComponent inputComponent) {
         return false;
@@ -33,15 +39,5 @@ public class InputComponent extends Component<InputComponent> {
     @Override
     public InputComponent clone() {
         return null;
-    }
-
-    @Override
-    public String toString() {
-        return "InputComponent{" +
-                "context_name='" + context_name + '\'' +
-                ", actions=" + actions +
-                ", states=" + states +
-                ", ranges=" + ranges +
-                '}';
     }
 }
