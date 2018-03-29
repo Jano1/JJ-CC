@@ -39,6 +39,10 @@ public class MovementSystem extends System {
                             velocity.position.add(movement_speed.position_speed.mul(position.rotated_facing_vector(90),new Vector3f()));
                         }else if(action.toString().equals("move_right")){
                             velocity.position.add(movement_speed.position_speed.mul(position.rotated_facing_vector(270),new Vector3f()));
+                        }else if(action.toString().equals("rotate_right")){
+
+                        }else if(action.toString().equals("rotate_left")){
+
                         }
                     }
                 }
