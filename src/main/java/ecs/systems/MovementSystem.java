@@ -30,8 +30,9 @@ public class MovementSystem extends System {
             if(movement_speed != null){
                 InputComponent input = single_id.get(InputComponent.class);
                 if(input != null){
-                    velocity.rotation.y += (input.mouse_position_velocity.y * movement_speed.rotation_speed.y);
-                    velocity.rotation.x += (input.mouse_position_velocity.x * movement_speed.rotation_speed.x);
+                    double pitch = input.mouse_position_velocity.y*movement_speed.rotation_speed.y;
+                    double yaw = input.mouse_position_velocity.x*movement_speed.rotation_speed.x;
+                    double roll = 0;
                     for(Action action : input.actions){
                         if(action.toString().equals("move_forward")){
                             velocity.position.add(movement_speed.position_speed.mul(position.facing_vector(),new Vector3f()));
@@ -42,11 +43,12 @@ public class MovementSystem extends System {
                         }else if(action.toString().equals("move_right")){
                             velocity.position.add(movement_speed.position_speed.mul(position.rotated_facing_vector(270),new Vector3f()));
                         }else if(action.toString().equals("rotate_right")){
-
+                            roll += movement_speed.rotation_speed.z;
                         }else if(action.toString().equals("rotate_left")){
-
+                            roll -= movement_speed.rotation_speed.z;
                         }
                     }
+                    velocity.rotation.add(new Vector3f((float)pitch, (float)yaw, (float)roll).mul(position.rotation_matrix()));
                 }
             }
 

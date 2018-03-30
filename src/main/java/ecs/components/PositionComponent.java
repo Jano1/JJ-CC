@@ -20,12 +20,15 @@ public class PositionComponent extends HistoricBasedComponent<PositionComponent>
     }
 
     public Vector3f facing_vector(){
-        Matrix3f rotation_matrix = new Matrix3f().rotationXYZ(
+        return new Vector3f(1f,0f,0f).mul(rotation_matrix()).normalize();
+    }
+
+    public Matrix3f rotation_matrix(){
+       return new Matrix3f().rotationXYZ(
                 (float)Math.toRadians(rotation.x),
                 (float)Math.toRadians(rotation.y),
                 (float)Math.toRadians(rotation.z)
         );
-        return new Vector3f(1f,0f,0f).mul(rotation_matrix).normalize();
     }
 
     public Vector3f rotated_facing_vector(float degrees){
