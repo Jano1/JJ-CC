@@ -25,7 +25,7 @@ public class Game implements Runnable {
     public Game() {
         ecs_list = new HashedMap<>();
         to_tick = new ArrayList<>();
-        window = new Window("test", 100, 100, true);
+        window = new Window("test", 500, 500, true);
     }
 
     public static void main(String[] args) {
@@ -137,6 +137,8 @@ class ECSLoader {
         player.add(new TimeComponent(25));
         player.add(new InputComponent("base.context"));
         player.add(new CameraComponent(70, 0.1f, 20.0f, true));
+
+        java.lang.System.out.println(player.get(PositionComponent.class).facing_vector()+" "+player.get(PositionComponent.class).up_vector());
 
         return ecs;
     }

@@ -30,6 +30,8 @@ public class MovementSystem extends System {
             if(movement_speed != null){
                 InputComponent input = single_id.get(InputComponent.class);
                 if(input != null){
+                    velocity.rotation.y += (input.mouse_position_velocity.y * movement_speed.rotation_speed.y);
+                    velocity.rotation.x += (input.mouse_position_velocity.x * movement_speed.rotation_speed.x);
                     for(Action action : input.actions){
                         if(action.toString().equals("move_forward")){
                             velocity.position.add(movement_speed.position_speed.mul(position.facing_vector(),new Vector3f()));
@@ -64,7 +66,7 @@ public class MovementSystem extends System {
             }
 
             if(!cloned.equal_values(position)){
-                java.lang.System.out.println(position.position);
+                java.lang.System.out.println(position);
             }
         }
     }
