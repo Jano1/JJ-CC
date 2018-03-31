@@ -6,8 +6,10 @@ import ecs.ID;
 import ecs.components.*;
 import ecs.systems.InputSystem;
 import ecs.systems.MovementSystem;
+import graphic.Model;
 import org.apache.commons.collections4.map.HashedMap;
 import org.joml.Vector3f;
+import resource.implemented.ModelResource;
 import system.System;
 
 import java.util.ArrayList;
