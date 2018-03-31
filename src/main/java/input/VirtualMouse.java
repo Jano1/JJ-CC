@@ -31,8 +31,8 @@ public class VirtualMouse {
         public void invoke(long window, double xpos, double ypos) {
             long time = System.nanoTime();
             Vector2d position_difference = new Vector2d(xpos - position.x, ypos - position.y);
-            long time_difference = time - last_position_measure;
-            position_velocity = position_difference.mul(1.0 / time_difference);
+            double time_difference = (double)(time - last_position_measure) / 1000000000d;
+            position_velocity = position_difference.mul((1.0d/time_difference),new Vector2d());
             position.x = xpos;
             position.y = ypos;
             last_position_measure = time;

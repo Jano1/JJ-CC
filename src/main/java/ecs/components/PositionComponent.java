@@ -42,6 +42,12 @@ public class PositionComponent extends HistoricBasedComponent<PositionComponent>
         return facing.cross(new Vector3f(0f,1f,0f),new Vector3f()).cross(facing).normalize();
     }
 
+    public void correct_rotation() {
+        rotation.x = rotation.x % 360f;
+        rotation.y = rotation.y % 360f;
+        rotation.z = rotation.z % 360f;
+    }
+
     public PositionComponent(Vector3f position) {
         this(position, new Vector3f(0, 0, 0), new Vector3f(0, 0, 0));
     }
