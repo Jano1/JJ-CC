@@ -12,8 +12,8 @@ import java.nio.file.Files;
  */
 public class ShaderResource extends Resource<Shader> {
 
-    public ShaderResource(String type, String name){
-        super("shader/"+type,name);
+    public ShaderResource(String type, String name) {
+        super("shader/" + type, name);
     }
 
     @Override

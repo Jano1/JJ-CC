@@ -18,12 +18,12 @@ public class MovementSpeedComponent extends Component<MovementSpeedComponent> {
         this.scaling_speed = scaling_speed;
     }
 
-    public MovementSpeedComponent(Vector3f position_speed){
-        this(position_speed,new Vector3f(),new Vector3f());
+    public MovementSpeedComponent(Vector3f position_speed) {
+        this(position_speed, new Vector3f(), new Vector3f());
     }
 
-    public MovementSpeedComponent(float position, float rotation, float scaling){
-        this(new Vector3f(position),new Vector3f(rotation),new Vector3f(scaling));
+    public MovementSpeedComponent(float position, float rotation, float scaling) {
+        this(new Vector3f(position), new Vector3f(rotation), new Vector3f(scaling));
     }
 
     @Override

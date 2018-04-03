@@ -30,8 +30,8 @@ public class InputComponent extends Component<InputComponent> {
         mouse_scroll_velocity = new Vector2d();
     }
 
-    public void remove_actions(String... names){
-        for(String name : names){
+    public void remove_actions(String... names) {
+        for (String name : names) {
             actions.remove(new Action(name));
         }
     }

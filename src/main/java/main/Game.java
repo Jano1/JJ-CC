@@ -6,10 +6,8 @@ import ecs.ID;
 import ecs.components.*;
 import ecs.systems.InputSystem;
 import ecs.systems.MovementSystem;
-import graphic.Model;
 import org.apache.commons.collections4.map.HashedMap;
 import org.joml.Vector3f;
-import resource.implemented.ModelResource;
 import system.System;
 
 import java.util.ArrayList;
@@ -24,6 +22,7 @@ public class Game implements Runnable {
     Map<String, ECS> ecs_list;
     List<String> to_tick;
     Window window;
+
     public Game() {
         ecs_list = new HashedMap<>();
         to_tick = new ArrayList<>();
@@ -135,12 +134,12 @@ class ECSLoader {
         ID player = ecs.create_entity(Blueprint.empty_blueprint());
         player.add(new PositionComponent(new Vector3f(0, 0.5f, 0)));
         player.add(new VelocityComponent(new Vector3f(0, 0, 0)));
-        player.add(new MovementSpeedComponent(1f,20f,1f));
+        player.add(new MovementSpeedComponent(1f, 20f, 1f));
         player.add(new TimeComponent(25));
         player.add(new InputComponent("base.context"));
         player.add(new CameraComponent(70, 0.1f, 20.0f, true));
 
-        java.lang.System.out.println(player.get(PositionComponent.class).facing_vector()+" "+player.get(PositionComponent.class).up_vector());
+        java.lang.System.out.println(player.get(PositionComponent.class).facing_vector() + " " + player.get(PositionComponent.class).up_vector());
 
         return ecs;
     }

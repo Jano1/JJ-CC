@@ -1,4 +1,5 @@
 package graphic;
+
 import static org.lwjgl.opengl.GL20.*;
 
 /**
@@ -9,7 +10,7 @@ public class Shader {
     String content;
     int opengl_id = 0;
 
-    public Shader(String content){
+    public Shader(String content) {
         this.content = content;
     }
 
@@ -25,11 +26,11 @@ public class Shader {
         }
     }
 
-    public boolean loaded_into_opengl(){
+    public boolean loaded_into_opengl() {
         return opengl_id > 0;
     }
 
-    public int id(){
+    public int id() {
         return opengl_id;
     }
 }
