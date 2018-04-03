@@ -10,8 +10,8 @@ import java.util.Map;
 public class TilePatch {
 
     Map<Position,Tile> tiles;
-    public static final char MAX = 'a';
-    public static final char MIN = 'i';
+    public static final char POSITION_MAX = 'a';
+    public static final char POSITION_MIN = 'i';
 
     public TilePatch(){
         tiles = new HashedMap<>();
@@ -25,7 +25,7 @@ public class TilePatch {
     }
 
     public void normalize(){
-        translate_all(get_position(MIN).negate());
+        translate_all(get_position(POSITION_MIN).negate());
     }
 
     private void translate_all(Vector2i amount) {
@@ -43,18 +43,13 @@ public class TilePatch {
                 position = new Position(p.x,p.y);
                 continue;
             }
-            if((type == MIN && p.x < position.x) || (type == MAX && p.x > position.x)){
+            if((type == POSITION_MIN && p.x < position.x) || (type == POSITION_MAX && p.x > position.x)){
                 position.x = p.x;
             }
-            if((type == MIN && p.y < position.y) || (type == MAX && p.y > position.y)){
+            if((type == POSITION_MIN && p.y < position.y) || (type == POSITION_MAX && p.y > position.y)){
                 position.y = p.y;
             }
         }
         return position;
     }
-
-    public Map<Position,Tile> get_tiles(){
-        return tiles;
-    }
-
 }
