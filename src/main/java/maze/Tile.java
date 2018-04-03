@@ -1,22 +1,20 @@
 package maze;
 
 /**
- * Created by Jan-Frederik Leißner on 03.04.2018.
+ * Created by Jan on 08.06.2016.
  */
 public class Tile {
-    public static final char FLAT = 'f';
-    public static final char WALL = 'w';
-    public static final char DOOR = 'd';
+    private Terrain terrain;
 
-    public char type;
-    public int value;
-
-    public Tile(char type, int value) {
-        this.type = type;
-        this.value = value;
+    public Tile(Terrain terrain) {
+        this.terrain = terrain;
     }
 
-    public Tile(){
-        this(WALL,0);
+    public void setTerrain(Terrain terrain) {
+        this.terrain = terrain;
+    }
+
+    public Terrain getTerrain() {
+        return terrain;
     }
 }
