@@ -8,8 +8,8 @@ import org.joml.Vector3f;
  */
 public class MovementSpeedComponent extends Component<MovementSpeedComponent> {
 
-    public Vector3f position_speed;
-    public Vector3f rotation_speed;
+    public Vector3f position_speed; // m/s (metre/second)
+    public Vector3f rotation_speed; // d/p (degree/second)
     public Vector3f scaling_speed;
 
     public MovementSpeedComponent(Vector3f position_speed, Vector3f rotation_speed, Vector3f scaling_speed) {

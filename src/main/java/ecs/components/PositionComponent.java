@@ -46,6 +46,15 @@ public class PositionComponent extends HistoricBasedComponent<PositionComponent>
         rotation.x = rotation.x % 360f;
         rotation.y = rotation.y % 360f;
         rotation.z = rotation.z % 360f;
+        if(rotation.x < 0){
+            rotation.x += 360f;
+        }
+        if(rotation.y < 0){
+            rotation.y += 360f;
+        }
+        if(rotation.z < 0){
+            rotation.z += 360f;
+        }
     }
 
     public PositionComponent(Vector3f position) {

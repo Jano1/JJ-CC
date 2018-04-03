@@ -27,34 +27,28 @@ public class MovementSystem extends System {
             VelocityComponent velocity = velocity_base.clone();
 
             MovementSpeedComponent movement_speed = single_id.get(MovementSpeedComponent.class);
-            if(movement_speed != null){
+            if (movement_speed != null) {
                 InputComponent input = single_id.get(InputComponent.class);
-                if(input != null){
-                    double pitch = 0;
-                    if(input.mouse_position_velocity.y != 0){
-                        pitch = movement_speed.rotation_speed.y;
-                    }
-                    double yaw = 0;
-                    if(input.mouse_position_velocity.x != 0){
-                        yaw = movement_speed.rotation_speed.x;
-                    }
+                if (input != null) {
+                    double pitch = movement_speed.rotation_speed.y * java.lang.Math.signum(input.mouse_position_velocity.y);
+                    double yaw = movement_speed.rotation_speed.x * java.lang.Math.signum(input.mouse_position_velocity.x);
                     double roll = 0;
-                    for(Action action : input.actions){
-                        if(action.toString().equals("move_forward")){
-                            velocity.position.add(movement_speed.position_speed.mul(position.facing_vector(),new Vector3f()));
-                        }else if(action.toString().equals("move_backward")){
-                            velocity.position.add(movement_speed.position_speed.mul(position.rotated_facing_vector(180),new Vector3f()));
-                        }else if(action.toString().equals("move_left")){
-                            velocity.position.add(movement_speed.position_speed.mul(position.rotated_facing_vector(90),new Vector3f()));
-                        }else if(action.toString().equals("move_right")){
-                            velocity.position.add(movement_speed.position_speed.mul(position.rotated_facing_vector(270),new Vector3f()));
-                        }else if(action.toString().equals("rotate_right")){
+                    for (Action action : input.actions) {
+                        if (action.toString().equals("move_forward")) {
+                            velocity.position.add(movement_speed.position_speed.mul(position.facing_vector(), new Vector3f()));
+                        } else if (action.toString().equals("move_backward")) {
+                            velocity.position.add(movement_speed.position_speed.mul(position.rotated_facing_vector(180), new Vector3f()));
+                        } else if (action.toString().equals("move_left")) {
+                            velocity.position.add(movement_speed.position_speed.mul(position.rotated_facing_vector(90), new Vector3f()));
+                        } else if (action.toString().equals("move_right")) {
+                            velocity.position.add(movement_speed.position_speed.mul(position.rotated_facing_vector(270), new Vector3f()));
+                        } else if (action.toString().equals("rotate_right")) {
                             roll += movement_speed.rotation_speed.z;
-                        }else if(action.toString().equals("rotate_left")){
+                        } else if (action.toString().equals("rotate_left")) {
                             roll -= movement_speed.rotation_speed.z;
                         }
                     }
-                    velocity.rotation.add((float)pitch, (float)yaw, (float)roll);
+                    velocity.rotation.add((float) pitch, (float) yaw, (float) roll);
                 }
             }
 
@@ -75,7 +69,7 @@ public class MovementSystem extends System {
 
             position.correct_rotation();
 
-            if(!cloned.equal_values(position)){
+            if (!cloned.equal_values(position)) {
                 java.lang.System.out.println(position.rotation);
             }
         }
