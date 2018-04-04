@@ -1,5 +1,6 @@
 package level;
 
+import com.google.gson.Gson;
 import org.joml.Random;
 import org.joml.Vector2i;
 
@@ -95,5 +96,10 @@ public class MazeConfiguration {
                 min.x + random().nextInt(max.x - min.x + 1),
                 min.y + random().nextInt(max.y - min.y + 1)
         );
+    }
+
+    public String as_json(){
+        Gson json = new Gson();
+        return json.toJson(this);
     }
 }

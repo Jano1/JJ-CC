@@ -14,7 +14,7 @@ import java.io.IOException;
 public class TEST {
     public static void main(String[] args){
         MazeConfiguration config = new MazeConfiguration(
-                new Vector2i(30,30),
+                new Vector2i(10,30),
                 123456,
                 500,
                 new Vector2i(3,3),
@@ -47,7 +47,7 @@ public class TEST {
                 g.fillRect(x * drawSize, y * drawSize, drawSize - 1, drawSize - 1);
             }
         }
-        File output = new File("mazes/maze_seed-" + m.configuration().random_seed + ".png");
+        File output = new File("mazes/maze_" +m.configuration().random_seed+ ".png");
         try {
             ImageIO.write(off_Image, "png", output);
         } catch (IOException e) {
