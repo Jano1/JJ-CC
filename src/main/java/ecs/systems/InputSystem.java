@@ -6,6 +6,7 @@ import input.Context;
 import input.ContextManager;
 import input.VirtualKeyboard;
 import input.VirtualMouse;
+import org.joml.Vector2d;
 import system.System;
 
 import java.util.List;
@@ -42,6 +43,10 @@ public class InputSystem extends System {
         for (ID single_id : to_handle) {
             //Clear old input
             InputComponent input_component = single_id.get(InputComponent.class);
+            input_component.mouse_position_velocity = mouse.position_velocity().mul(1, new Vector2d());
+            mouse.position_velocity().set(0);
+            input_component.mouse_scroll_velocity = mouse.scroll_offset_velocity().mul(1, new Vector2d());
+            mouse.scroll_offset_velocity().set(0);
             input_component.actions.clear();
             input_component.ranges.clear();
             input_component.states.clear();

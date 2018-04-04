@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0a0a5407-d662-4c9e-8f07-eefea37f15df" name="deploy" url="http://localhost">
+        <fileTransfer port="0" mountedRoot="C:\Users\jleis\Desktop\jj-cc" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>

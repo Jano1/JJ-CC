@@ -22,10 +22,11 @@ public class Game implements Runnable {
     Map<String, ECS> ecs_list;
     List<String> to_tick;
     Window window;
+
     public Game() {
         ecs_list = new HashedMap<>();
         to_tick = new ArrayList<>();
-        window = new Window("test", 100, 100, true);
+        window = new Window("test", 500, 500, true);
     }
 
     public static void main(String[] args) {
@@ -131,11 +132,14 @@ class ECSLoader {
         ecs.register_system_group("movement_1", new System[]{new MovementSystem()});
 
         ID player = ecs.create_entity(Blueprint.empty_blueprint());
-        player.add(new PositionComponent(new Vector3f(1, 1, 0)));
-        player.add(new VelocityComponent(new Vector3f(1, 0, 0)));
+        player.add(new PositionComponent(new Vector3f(0, 0.5f, 0)));
+        player.add(new VelocityComponent(new Vector3f(0, 0, 0)));
+        player.add(new MovementSpeedComponent(1f, 20f, 1f));
         player.add(new TimeComponent(25));
         player.add(new InputComponent("base.context"));
         player.add(new CameraComponent(70, 0.1f, 20.0f, true));
+
+        java.lang.System.out.println(player.get(PositionComponent.class).facing_vector() + " " + player.get(PositionComponent.class).up_vector());
 
         return ecs;
     }

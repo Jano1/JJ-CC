@@ -3,4 +3,32 @@
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
+  <component name="UMLDiagramComponent">
+    <diagram name="main">
+      <command command-class="de.frag.umlplugin.uml.command.AddClassCommand" psi-class="main.Game" />
+      <command command-class="de.frag.umlplugin.uml.command.AddDependentClassesCommand" psi-class="main.Game" />
+      <command command-class="de.frag.umlplugin.uml.command.AddDependentClassesCommand" psi-class="ecs.ECS" />
+      <command command-class="de.frag.umlplugin.uml.command.AddDependentClassesCommand" psi-class="main.ECSLoader" />
+      <command command-class="de.frag.umlplugin.uml.command.AddDependentClassesCommand" psi-class="main.Window" />
+      <command command-class="de.frag.umlplugin.uml.command.AddDependentClassesCommand" psi-class="ecs.components.VelocityComponent" />
+      <command command-class="de.frag.umlplugin.uml.command.AddDependentClassesCommand" psi-class="main.Window" />
+      <command command-class="de.frag.umlplugin.uml.command.AddDependentClassesCommand" psi-class="ecs.components.InputComponent" />
+      <command command-class="de.frag.umlplugin.uml.command.AddDependentClassesCommand" psi-class="ecs.components.CameraComponent" />
+      <command command-class="de.frag.umlplugin.uml.command.AddDependentClassesCommand" psi-class="ecs.systems.InputSystem" />
+      <command command-class="de.frag.umlplugin.uml.command.AddDependentClassesCommand" psi-class="java.lang.System" />
+      <command command-class="de.frag.umlplugin.uml.command.AddDependentClassesCommand" psi-class="input.VirtualMouse" />
+      <command command-class="de.frag.umlplugin.uml.command.AddDependentClassesCommand" psi-class="ecs.components.PositionComponent" />
+      <command command-class="de.frag.umlplugin.uml.command.AddDependentClassesCommand" psi-class="input.ContextManager" />
+      <command command-class="de.frag.umlplugin.uml.command.AddDependentClassesCommand" psi-class="resource.implemented.ContextResource" />
+      <command command-class="de.frag.umlplugin.uml.command.AddDependentClassesCommand" psi-class="component.Component" />
+      <command command-class="de.frag.umlplugin.uml.command.AddDependentClassesCommand" psi-class="ecs.systems.RenderSystem" />
+      <command command-class="de.frag.umlplugin.uml.command.AddDependentClassesCommand" psi-class="resource.ResourceLoader" />
+      <command command-class="de.frag.umlplugin.uml.command.RemoveAllUsageEdgesCommand" />
+      <command command-class="de.frag.umlplugin.uml.command.AddDependentClassesCommand" psi-class="ecs.components.TimeComponent" />
+      <command command-class="de.frag.umlplugin.uml.command.AddDependentClassesCommand" psi-class="component.BasedComponent" />
+      <command command-class="de.frag.umlplugin.uml.command.AddDependentClassesCommand" psi-class="input.Context" />
+      <command command-class="de.frag.umlplugin.uml.command.AddDependentClassesCommand" psi-class="ecs.components.TextureComponent" />
+      <compartment-visibility />
+    </diagram>
+  </component>
 </project>

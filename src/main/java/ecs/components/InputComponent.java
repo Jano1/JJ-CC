@@ -4,6 +4,7 @@ import component.Component;
 import input.Action;
 import input.Range;
 import input.State;
+import org.joml.Vector2d;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,12 +18,22 @@ public class InputComponent extends Component<InputComponent> {
     public List<Action> actions;
     public List<State> states;
     public List<Range> ranges;
+    public Vector2d mouse_position_velocity;
+    public Vector2d mouse_scroll_velocity;
 
     public InputComponent(String context_name) {
         this.context_name = context_name;
         actions = new ArrayList<>();
         states = new ArrayList<>();
         ranges = new ArrayList<>();
+        mouse_position_velocity = new Vector2d();
+        mouse_scroll_velocity = new Vector2d();
+    }
+
+    public void remove_actions(String... names) {
+        for (String name : names) {
+            actions.remove(new Action(name));
+        }
     }
 
     @Override
@@ -33,15 +44,5 @@ public class InputComponent extends Component<InputComponent> {
     @Override
     public InputComponent clone() {
         return null;
-    }
-
-    @Override
-    public String toString() {
-        return "InputComponent{" +
-                "context_name='" + context_name + '\'' +
-                ", actions=" + actions +
-                ", states=" + states +
-                ", ranges=" + ranges +
-                '}';
     }
 }
