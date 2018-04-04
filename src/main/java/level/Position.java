@@ -1,4 +1,4 @@
-package maze;
+package level;
 
 import org.joml.Vector2i;
 
