@@ -14,13 +14,13 @@ import java.io.IOException;
 public class TEST {
     public static void main(String[] args){
         MazeConfiguration config = new MazeConfiguration(
-                new Vector2i(10,30),
-                123456,
-                500,
-                new Vector2i(3,3),
-                new Vector2i(7,7),
-                100,
-                'w'
+                new Vector2i(10,30),        // Größe
+                123456,               // Seed
+                500,                 // Raum-Erzeugungsversuche
+                new Vector2i(3,3),          // Minimale Raumgröße
+                new Vector2i(7,7),          // Maximale Raumgröße
+                100,        // Tote Enden entfernen
+                'w'                   // Wand als Standard
         );
 
         Maze m = MazeGenerator.generate(config);
